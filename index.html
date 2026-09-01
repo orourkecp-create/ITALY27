@@ -39,6 +39,17 @@ h1,h2,h3,h4{
   font-family:var(--display);margin:0;line-height:1.02;
   font-weight:700;letter-spacing:-.015em;
   font-variation-settings:"opsz" 90;
+  overflow-wrap:break-word;
+}
+
+/* narrow-screen safety */
+@media (max-width:430px){
+  .plan__nums{grid-template-columns:1fr}
+  .route{font-size:10px;gap:5px}
+  .route i{min-width:8px}
+  .meal{flex-wrap:wrap;gap:3px 8px}
+  .meal b{padding-top:0}
+  .day__date{letter-spacing:.12em}
 }
 p{margin:0}
 a{color:inherit}
@@ -181,6 +192,11 @@ a{color:inherit}
 .day__date::after{content:"";height:1px;flex:1;background:var(--ink-14)}
 .day h4{font-size:clamp(1.1rem,3.4vw,1.35rem);margin:7px 0 5px;font-weight:700}
 .day p{font-size:14px;color:var(--ink-60);line-height:1.5}
+.beats{list-style:none;margin:7px 0 0;padding:0}
+.beats li{position:relative;padding:3.5px 0 3.5px 15px;font-size:14px;color:var(--ink-60);line-height:1.42}
+.beats li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:2px;border-radius:1px;background:var(--acc);opacity:.75}
+.day--fin .beats li{color:rgba(255,255,255,.72)}
+.day--fin .beats li::before{background:var(--sky)}
 .meal{display:flex;gap:9px;align-items:baseline;margin-top:11px;padding-top:10px;border-top:1px dashed var(--ink-38)}
 .meal b{font-size:9.5px;letter-spacing:.15em;font-weight:700;color:var(--ink-60);flex:0 0 auto;padding-top:3px}
 .meal span{font-family:var(--display);font-size:15px;line-height:1.3;font-weight:500}
@@ -753,7 +769,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">FRI · JUL 2</div>
           <h4>🛬 Arrival + Monti</h4>
-          <p>Arrive, check in, wander Monti, vintage shopping at Pifebo.</p>
+          <ul class="beats">
+            <li>Land, get to the apartment, check in</li>
+            <li>Monti wandering + vintage at Pifebo</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🍷 Fafiuché aperitivo → 🍝 Dar Bruttone</span></div>
         </div>
       </article>
@@ -763,7 +782,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">SAT · JUL 3</div>
           <h4>🏛️ Ancient Rome</h4>
-          <p>Colosseum → Roman Forum → Palatine Hill → Trevi + wandering.</p>
+          <ul class="beats">
+            <li>Colosseum → Roman Forum → Palatine Hill</li>
+            <li>Trevi + wandering the centre</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>✨ Roscioli</span></div>
           <div class="meal"><b>NIGHT</b><span>🪩 Rome house / electronic night</span></div>
           <p class="fine">Best July event TBD — Forte Antenne / Utopia / outdoor party / pop-up.</p>
@@ -775,7 +797,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">SUN · JUL 4</div>
           <h4>⛪ Vatican + Centro Storico</h4>
-          <p>Vatican Museums + Sistine Chapel → Prati → Ponte Sant’Angelo → Piazza Navona → Pantheon.</p>
+          <ul class="beats">
+            <li>Vatican Museums + Sistine Chapel</li>
+            <li>Prati → Ponte Sant’Angelo → Piazza Navona → Pantheon</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🥟 JiaMo Lab</span></div>
           <p class="fine">Easy evening before an early train.</p>
         </div>
@@ -786,9 +811,14 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">MON · JUL 5</div>
           <h4>🚄 Pompeii + Naples</h4>
-          <p>Early train from Rome. Pompeii first, before the peak afternoon heat. Then the afternoon wandering, eating and drinking around Naples.</p>
+          <ul class="beats">
+            <li>Early train out of Rome</li>
+            <li>Pompeii first, before the afternoon heat</li>
+            <li>Naples: wandering, eating, drinking</li>
+          </ul>
           <div class="meal"><b>LUNCH</b><span>🍕 Neapolitan pizza</span></div>
-          <div class="meal"><b>DINNER</b><span>🍽️ Bella Napoli Centro — early, then the train back</span></div>
+          <div class="meal"><b>DINNER</b><span>🍽️ Bella Napoli Centro — early</span></div>
+          <p class="fine">Train back to Rome after dinner.</p>
         </div>
       </article>
     </div>
@@ -804,7 +834,11 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">TUE · JUL 6</div>
           <h4>✈️ Sicily arrival</h4>
-          <p>Rome → Catania → Taormina. Check in, pool, Villa Comunale and easy town wandering.</p>
+          <ul class="beats">
+            <li>Rome → Catania → Taormina</li>
+            <li>Check in + pool</li>
+            <li>Villa Comunale + easy town wandering</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🍝 Osteria da Rita</span></div>
         </div>
       </article>
@@ -814,7 +848,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">WED · JUL 7</div>
           <h4>🏖️ Isola Bella</h4>
-          <p>Isola Bella + Mazzarò. A full beach and swimming day.</p>
+          <ul class="beats">
+            <li>Isola Bella + Mazzarò</li>
+            <li>Full beach and swimming day</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🐟 Il Gabbiano — seaside seafood</span></div>
         </div>
       </article>
@@ -824,7 +861,11 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">THU · JUL 8</div>
           <h4>🏛️ Greek Theatre + Castelmola</h4>
-          <p>Theatre in the morning, then Castelmola for views and village wandering. Back for pool and siesta.</p>
+          <ul class="beats">
+            <li>Greek Theatre in the morning</li>
+            <li>Castelmola: views + village wandering</li>
+            <li>Back down for pool and siesta</li>
+          </ul>
           <div class="meal"><b>LUNCH</b><span>🥩 Gallo Cedrone</span></div>
           <div class="meal"><b>DINNER</b><span>🍷 Al Grappolo d’Uva — wine + small plates</span></div>
         </div>
@@ -835,7 +876,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">FRI · JUL 9</div>
           <h4>🏖️ Slow Sicily day</h4>
-          <p>Second beach and pool day. Shopping, Dior, Corso Umberto and Taormina wandering.</p>
+          <ul class="beats">
+            <li>Second beach and pool day</li>
+            <li>Corso Umberto: shopping, Dior, wandering</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🏠 Cook at the Airbnb + Sicilian wine</span></div>
         </div>
       </article>
@@ -846,7 +890,11 @@ a{color:inherit}
           <span class="tag">THE BIG ONE</span>
           <div class="day__date">SAT · JUL 10</div>
           <h4>🎂 Ashley’s birthday</h4>
-          <p>🛥️ Private 2-hour Taormina Sailing boat — swimming + aperitif. Then siesta and pool.</p>
+          <ul class="beats">
+            <li>Slow Sicilian breakfast</li>
+            <li>🛥️ Private 2-hour Taormina Sailing boat — swimming + aperitif</li>
+            <li>Siesta + pool</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🥂✨ Taverna Don Nino</span></div>
           <p style="margin-top:11px"><a href="#birthday" style="color:var(--azzurri);font-weight:600;text-decoration:none;font-size:12px;letter-spacing:.08em">SEE THE FULL DAY ↓</a></p>
         </div>
@@ -864,7 +912,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">SUN · JUL 11</div>
           <h4>🌋 Catania arrival</h4>
-          <p>Taormina → Catania. Piazza Duomo → Cathedral → Via Etnea → historic-centre wandering.</p>
+          <ul class="beats">
+            <li>Taormina → Catania, check in</li>
+            <li>Piazza Duomo → Cathedral → Via Etnea → historic centre</li>
+          </ul>
           <div class="meal"><b>DINNER</b><span>🌙 SVRGO or Deliziosa — terrace dinner</span></div>
         </div>
       </article>
@@ -874,7 +925,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">MON · JUL 12</div>
           <h4>🍅 Catania market day</h4>
-          <p>Markets, neighbourhoods and streets, with a casual market lunch somewhere along the way.</p>
+          <ul class="beats">
+            <li>Catania markets, neighbourhoods and streets</li>
+          </ul>
+          <div class="meal"><b>LUNCH</b><span>🧺 Casual market lunch</span></div>
           <div class="meal"><b>DINNER</b><span>🌮 Carlito’s Mexican</span></div>
           <div class="meal"><b>OPTIONAL</b><span>🍸 Lettera 82 — or a Sicily electronic night if the right event lands</span></div>
         </div>
@@ -885,7 +939,11 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">TUE · JUL 13</div>
           <h4>🌊 Syracuse + Ortigia</h4>
-          <p>Train to Syracuse. Ortigia, the waterfront, the streets and the food market — shop it before we leave.</p>
+          <ul class="beats">
+            <li>Train to Syracuse</li>
+            <li>Ortigia: waterfront, streets, food market</li>
+            <li>Shop the market before we leave</li>
+          </ul>
           <div class="meal"><b>LUNCH</b><span>🍕 Schiticchio or casual local seafood</span></div>
           <div class="meal"><b>DINNER</b><span>🏠 Cook the Ortigia haul at the Airbnb + wine</span></div>
         </div>
@@ -896,7 +954,10 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">WED · JUL 14</div>
           <h4>🌋 Final Sicilian day</h4>
-          <p>Morning at the Botanical Garden or Castello Ursino. Afternoon is hotel downtime, a nap, nothing.</p>
+          <ul class="beats">
+            <li>Botanical Garden or Castello Ursino</li>
+            <li>Afternoon: hotel downtime, nap, nothing</li>
+          </ul>
           <div class="meal"><b>LUNCH</b><span>🐟 Scirocco Sicilian Fish Lab</span></div>
           <div class="meal"><b>APERITIVO</b><span>🌋🍸 Rooftop Bar at Palace Catania — Etna view</span></div>
           <div class="meal"><b>DINNER</b><span>🍝 U Fucularu — pistachio pasta, last one</span></div>
@@ -908,7 +969,9 @@ a{color:inherit}
         <div class="day__in">
           <div class="day__date">THU · JUL 15</div>
           <h4 style="color:#fff">✈️ Home</h4>
-          <p>Thirteen nights, three bases, one very good July.</p>
+          <ul class="beats">
+            <li>Catania → home</li>
+          </ul>
         </div>
       </article>
     </div>
