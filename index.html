@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Italy — Summer 2027</title>
+<meta name="description" content="Rome → Taormina → Catania. July 2–15, 2027. 13 nights.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2E5E;
+  --azzurri:#1B62B8;
+  --azzurri-lt:#4E93DA;
+  --sky:#DDEBF8;
+  --white:#FFFFFF;
+  --off:#F3F0E6;
+  --off-2:#EAE5D5;
+  --green:#177A4F;
+  --green-dk:#0F5F3D;
+  --ink-60:rgba(11,46,94,.62);
+  --ink-38:rgba(11,46,94,.38);
+  --ink-14:rgba(11,46,94,.14);
+  --display:"Fraunces",Georgia,serif;
+  --sans:"Outfit",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --pad:clamp(18px,4.6vw,68px);
+  --maxw:1200px;
+  --nav-h:56px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--white);color:var(--navy);
+  font-family:var(--sans);font-size:15.5px;line-height:1.55;
+  font-weight:400;overflow-x:hidden;
+}
+h1,h2,h3,h4{
+  font-family:var(--display);margin:0;line-height:1.02;
+  font-weight:700;letter-spacing:-.015em;
+  font-variation-settings:"opsz" 90;
+}
+p{margin:0}
+a{color:inherit}
+::selection{background:var(--azzurri);color:#fff}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:5px}
+
+/* ---------- scene frames ---------- */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ph{position:relative;overflow:hidden;margin:0;background:var(--sky);border-radius:7px}
+.scene{width:100%;height:100%;display:block;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.r-21x9{aspect-ratio:21/9}
+.r-16x9{aspect-ratio:16/9}
+.r-3x2{aspect-ratio:3/2}
+.r-3x4{aspect-ratio:3/4}
+.r-1x1{aspect-ratio:1/1}
+@media (max-width:820px){
+  .r-21x9{aspect-ratio:16/9}
+  .r-3x4{aspect-ratio:4/3}
+}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(12px) saturate(1.3);
+  -webkit-backdrop-filter:blur(12px) saturate(1.3);border-bottom:1px solid var(--ink-14)}
+.nav__tri{height:3px;display:flex}
+.nav__tri i{flex:1}
+.nav__tri i:nth-child(1){background:var(--green)}
+.nav__tri i:nth-child(2){background:var(--off)}
+.nav__tri i:nth-child(3){background:var(--azzurri)}
+.nav__inner{height:var(--nav-h);display:flex;align-items:center;gap:12px;
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.nav__mark{font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:.02em;
+  white-space:nowrap;flex:0 0 auto;color:var(--azzurri)}
+.nav__mark span{color:var(--navy)}
+.nav__links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto;padding:4px 0;-webkit-overflow-scrolling:touch}
+.nav__links::-webkit-scrollbar{display:none}
+.nav__links a{flex:0 0 auto;text-decoration:none;font-size:12px;font-weight:600;
+  letter-spacing:.09em;padding:7px 12px;border-radius:999px;color:var(--ink-60);
+  transition:background .25s,color .25s}
+.nav__links a:hover{background:var(--sky);color:var(--navy)}
+.nav__links a.active{background:var(--azzurri);color:#fff}
+@media (max-width:640px){.nav__inner{padding:0 13px;gap:8px}.nav__mark{font-size:15px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:calc(var(--nav-h) + 30px) var(--pad) clamp(26px,4.5vh,52px);color:#fff;overflow:hidden;background:var(--navy)}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg .scene{height:100%}
+.hero__scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,46,94,.42) 0%,rgba(11,46,94,.05) 30%,rgba(11,46,94,.62) 66%,rgba(11,46,94,.94) 100%)}
+.hero__in{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
+.hero__kicker{font-size:11px;letter-spacing:.24em;font-weight:600;display:flex;align-items:center;gap:11px;
+  margin-bottom:clamp(10px,2vh,20px);color:rgba(255,255,255,.85)}
+.hero__kicker::after{content:"";height:1px;flex:1;max-width:110px;background:rgba(255,255,255,.42)}
+.hero h1{font-size:clamp(3.6rem,16vw,10rem);line-height:.84;font-weight:900;letter-spacing:-.03em}
+.hero h1 em{display:block;font-style:italic;font-weight:500;
+  font-size:clamp(1.3rem,4.6vw,2.9rem);letter-spacing:0;line-height:1;margin-top:.22em;color:var(--sky)}
+.hero__sub{margin-top:clamp(14px,2.4vh,24px);font-size:clamp(12px,3vw,15px);font-weight:600;letter-spacing:.16em}
+.hero__meta{display:flex;flex-wrap:wrap;align-items:center;gap:9px 14px;margin-top:13px}
+.hero__date{background:var(--white);color:var(--navy);font-weight:700;font-size:12.5px;letter-spacing:.1em;padding:6px 13px;border-radius:3px}
+.hero__nights{font-size:14px;color:rgba(255,255,255,.86);max-width:36ch;line-height:1.45}
+.route{display:flex;align-items:center;gap:clamp(6px,2vw,13px);margin-top:clamp(18px,3vh,32px);
+  font-size:clamp(10.5px,2.5vw,12.5px);letter-spacing:.08em;font-weight:600}
+.route span{white-space:nowrap;display:flex;align-items:center;gap:5px}
+.route i{flex:1;height:1px;background:rgba(255,255,255,.5);min-width:12px;font-style:normal}
+.hero__cta{margin-top:clamp(20px,4vh,36px);display:inline-flex;align-items:center;gap:9px;
+  text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.09em;padding:12px 22px;
+  border:1px solid rgba(255,255,255,.55);border-radius:999px;color:#fff;transition:background .3s,color .3s}
+.hero__cta:hover{background:#fff;color:var(--navy)}
+.hero__cta b{font-weight:600;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* ---------- sections ---------- */
+.sec{max-width:var(--maxw);margin:0 auto;padding:clamp(54px,8vh,104px) var(--pad)}
+.sec__head{margin-bottom:clamp(24px,4vh,44px)}
+.sec__head h2{font-size:clamp(1.9rem,6.2vw,3.5rem);line-height:.98;font-weight:900}
+.sec__head h2 em{font-style:italic;font-weight:500;color:var(--azzurri)}
+.sec__note{margin-top:11px;color:var(--ink-60);max-width:50ch;font-size:14.5px}
+.rule{height:3px;width:86px;display:flex;margin-bottom:16px;border-radius:2px;overflow:hidden}
+.rule i{height:100%}
+.rule i:nth-child(1){width:40%;background:var(--green)}
+.rule i:nth-child(2){width:22%;background:var(--off-2)}
+.rule i:nth-child(3){flex:1;background:var(--azzurri)}
+
+/* ---------- destination cards ---------- */
+.dests{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+@media (max-width:880px){.dests{grid-template-columns:1fr;gap:20px}}
+.dest{position:relative;text-decoration:none;color:inherit;display:block;border-radius:8px;overflow:hidden;
+  background:var(--white);border:1px solid var(--ink-14);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .4s}
+.dest:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,46,94,.16);border-color:var(--azzurri-lt)}
+.dest:hover .scene{transform:scale(1.05)}
+.dest__ph{position:relative}
+.dest__ph .ph{border-radius:0}
+.dest__ph::before{content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,transparent 42%,rgba(11,46,94,.82))}
+.dest__cap{position:absolute;z-index:3;left:18px;right:18px;bottom:15px;color:#fff}
+.dest__num{font-family:var(--display);font-style:italic;font-size:13px;opacity:.8}
+.dest__cap h3{font-size:clamp(1.7rem,5vw,2.4rem);margin:1px 0 3px;font-weight:900}
+.dest__dates{font-size:11.5px;font-weight:600;letter-spacing:.13em}
+.dest__body{padding:15px 17px 18px;border-top:3px solid var(--acc)}
+.dest__body ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.dest__body li{font-size:12.5px;font-weight:500;background:var(--off);border-radius:999px;padding:4px 10px}
+.dest__line{margin-top:11px;font-size:13.5px;color:var(--ink-60);font-style:italic;font-family:var(--display)}
+#c-rome{--acc:var(--azzurri)}
+#c-taormina{--acc:var(--azzurri-lt)}
+#c-catania{--acc:var(--green)}
+
+/* ---------- itinerary ---------- */
+.itin{background:var(--off);border-top:1px solid var(--ink-14);border-bottom:1px solid var(--ink-14)}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.filters button{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.09em;
+  padding:8px 15px;border-radius:999px;cursor:pointer;border:1px solid var(--ink-38);
+  background:transparent;color:var(--ink-60);transition:all .25s}
+.filters button:hover{border-color:var(--azzurri);color:var(--azzurri)}
+.filters button[aria-pressed="true"]{background:var(--azzurri);border-color:var(--azzurri);color:#fff}
+
+.leg{margin-bottom:clamp(38px,6vh,72px);scroll-margin-top:calc(var(--nav-h) + 16px)}
+[data-filter="rome"] #taormina,[data-filter="rome"] #catania,
+[data-filter="taormina"] #rome,[data-filter="taormina"] #catania,
+[data-filter="catania"] #rome,[data-filter="catania"] #taormina{display:none}
+.leg__head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.leg__head h3{font-size:clamp(1.6rem,4.8vw,2.5rem);font-weight:900}
+.leg__head span{font-size:11.5px;font-weight:600;letter-spacing:.13em;color:var(--ink-60)}
+.leg__bar{height:3px;background:var(--acc);width:100%;margin-bottom:20px;border-radius:2px}
+#rome{--acc:var(--azzurri)}
+#taormina{--acc:var(--azzurri-lt)}
+#catania{--acc:var(--green)}
+
+.days{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.8vw,20px)}
+@media (max-width:820px){.days{grid-template-columns:1fr}}
+.day{background:var(--white);border:1px solid var(--ink-14);border-radius:8px;overflow:hidden;
+  transition:border-color .3s,box-shadow .4s}
+.day:hover{border-color:var(--azzurri-lt);box-shadow:0 12px 28px rgba(11,46,94,.1)}
+.day:hover .scene{transform:scale(1.04)}
+.day .ph{border-radius:0}
+.day--wide{grid-column:1/-1}
+.day__in{padding:15px 17px 18px}
+.day__date{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--acc);display:flex;align-items:center;gap:8px}
+.day__date::after{content:"";height:1px;flex:1;background:var(--ink-14)}
+.day h4{font-size:clamp(1.1rem,3.4vw,1.35rem);margin:7px 0 5px;font-weight:700}
+.day p{font-size:14px;color:var(--ink-60);line-height:1.5}
+.meal{display:flex;gap:9px;align-items:baseline;margin-top:11px;padding-top:10px;border-top:1px dashed var(--ink-38)}
+.meal b{font-size:9.5px;letter-spacing:.15em;font-weight:700;color:var(--ink-60);flex:0 0 auto;padding-top:3px}
+.meal span{font-family:var(--display);font-size:15px;line-height:1.3;font-weight:500}
+.day .fine{margin-top:8px;font-size:12.5px;color:var(--ink-38);line-height:1.45;font-style:italic}
+.tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.13em;padding:4px 8px;
+  border-radius:3px;background:var(--acc);color:#fff;margin-bottom:7px}
+.day--fin{background:var(--navy);border-color:var(--navy);color:#fff}
+.day--fin p{color:rgba(255,255,255,.7)}
+.day--fin .day__date{color:var(--sky)}
+.day--fin .day__date::after{background:rgba(255,255,255,.2)}
+
+/* strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+@media (max-width:700px){.strip{grid-template-columns:repeat(2,1fr)}}
+.strip .ph{border-radius:0}
+
+/* ---------- food ---------- */
+.phil{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--ink-14);
+  border:1px solid var(--ink-14);border-radius:8px;overflow:hidden}
+@media (max-width:880px){.phil{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:430px){.phil{grid-template-columns:1fr}}
+.phil div{background:var(--white);padding:15px 14px}
+.phil h4{font-size:1.05rem;margin-bottom:3px}
+.phil p{font-size:13px;color:var(--ink-60);line-height:1.42}
+.menus{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(22px,3.5vh,38px)}
+@media (max-width:880px){.menus{grid-template-columns:1fr}}
+.menu{background:var(--white);border:1px solid var(--ink-14);border-radius:8px;overflow:hidden}
+.menu:hover .scene{transform:scale(1.04)}
+.menu .ph{border-radius:0}
+.menu__in{padding:15px 17px 18px}
+.menu h4{font-size:1.35rem;font-weight:900}
+.menu__sub{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--acc);margin-top:3px}
+.menu ul{list-style:none;margin:11px 0 0;padding:0}
+.menu li{display:flex;gap:9px;align-items:baseline;font-size:14px;padding:6px 0;border-bottom:1px dotted var(--ink-38)}
+.menu li:last-child{border-bottom:0}
+.menu li b{font-weight:500;font-family:var(--display);font-size:15px}
+#m-rome{--acc:var(--azzurri)}
+#m-taormina{--acc:var(--azzurri-lt)}
+#m-catania{--acc:var(--green)}
+
+/* ---------- nightlife ---------- */
+.night{position:relative;color:#fff;overflow:hidden;background:var(--navy)}
+.night__bg{position:absolute;inset:0}
+.night__bg .scene{height:100%;opacity:.55}
+.night__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,32,66,.82),rgba(8,32,66,.9))}
+.night .sec{position:relative;z-index:2}
+.night h2{color:#fff}
+.night .sec__note{color:rgba(255,255,255,.68)}
+.night .rule i:nth-child(2){background:rgba(255,255,255,.5)}
+.night .rule i:nth-child(3){background:var(--azzurri-lt)}
+.night__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px)}
+@media (max-width:820px){.night__grid{grid-template-columns:1fr}}
+.nightcard{border:1px solid rgba(255,255,255,.24);border-radius:8px;padding:18px;background:rgba(255,255,255,.05)}
+.nightcard h4{font-size:1.4rem;color:#fff;font-weight:700}
+.nightcard .lbl{font-size:10.5px;letter-spacing:.17em;font-weight:700;color:var(--sky)}
+.nightcard p{font-size:14px;color:rgba(255,255,255,.7);margin-top:6px}
+.watch{list-style:none;margin:13px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.watch li{font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.9)}
+.quiet{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.18);font-size:14px;color:rgba(255,255,255,.72)}
+
+/* ---------- birthday ---------- */
+.bday{position:relative;color:#fff;background:var(--azzurri);overflow:hidden}
+.bday__bg{position:absolute;inset:0}
+.bday__bg .scene{height:100%}
+.bday__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,46,94,.72),rgba(11,46,94,.55) 45%,rgba(11,46,94,.85))}
+.bday .sec{position:relative;z-index:2}
+.bday__frame{border:1px solid rgba(255,255,255,.6);padding:clamp(20px,4vw,46px);border-radius:6px;position:relative}
+.bday__frame::before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.26);border-radius:4px;pointer-events:none}
+.bday .lbl{font-size:10.5px;letter-spacing:.26em;font-weight:700;color:var(--sky)}
+.bday h2{font-size:clamp(2rem,7vw,4.4rem);color:#fff;margin:9px 0 4px;font-weight:900}
+.bday h2 em{display:block;font-style:italic;font-weight:500;font-size:.36em;color:var(--sky);margin-top:.34em;letter-spacing:0}
+.bday__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:clamp(22px,3.5vh,38px);background:rgba(255,255,255,.3)}
+@media (max-width:820px){.bday__grid{grid-template-columns:1fr}}
+.moment{background:rgba(11,46,94,.66);padding:17px 16px}
+.moment .lbl{color:rgba(255,255,255,.6);letter-spacing:.2em}
+.moment h4{font-size:1.2rem;color:#fff;margin:6px 0 6px;font-weight:700}
+.moment p{font-size:13.5px;color:rgba(255,255,255,.76);line-height:1.45}
+.bday__seal{margin-top:20px;font-family:var(--display);font-style:italic;font-size:clamp(16px,3.4vw,21px);color:var(--sky)}
+
+/* ---------- budget ---------- */
+.plan{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(16px,2.6vw,36px);align-items:start}
+@media (max-width:820px){.plan{grid-template-columns:1fr}}
+.plan__nums{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink-14);
+  border:1px solid var(--ink-14);border-radius:8px;overflow:hidden}
+.plan__nums div{background:var(--off);padding:17px 16px}
+.plan__nums .k{font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--ink-60)}
+.plan__nums .v{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.2rem);font-weight:900;margin-top:5px;line-height:1}
+.plan__nums .v.blue{color:var(--azzurri)}
+.plan__nums small{font-size:12.5px;color:var(--ink-60);display:block;margin-top:5px}
+.covers{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0}
+.covers li{list-style:none;font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--off);border:1px solid var(--ink-14)}
+.k-lbl{font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--ink-60);margin-bottom:10px}
+.foot-note{margin-top:13px;font-size:13px;color:var(--ink-60);font-style:italic}
+
+/* ---------- footer ---------- */
+.foot{background:var(--navy);color:rgba(255,255,255,.75);padding:clamp(32px,6vh,60px) var(--pad)}
+.foot__in{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;justify-content:space-between}
+.foot h3{color:#fff;font-size:clamp(1.35rem,4.4vw,1.9rem);font-weight:900}
+.foot small{font-size:11.5px;letter-spacing:.14em;font-weight:600}
+
+/* ---------- back to top ---------- */
+.top{position:fixed;right:15px;bottom:15px;z-index:70;width:46px;height:46px;border-radius:50%;
+  cursor:pointer;border:1px solid var(--ink-14);background:#fff;color:var(--navy);font-size:16px;
+  display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .3s,transform .3s,visibility .3s,background .3s,color .3s;
+  box-shadow:0 8px 22px rgba(11,46,94,.2)}
+.top.show{opacity:1;visibility:visible;transform:none}
+.top:hover{background:var(--azzurri);color:#fff}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .scene{transition:none}
+  .hero__cta b{animation:none}
+}
+</style>
+</head>
+<body data-filter="all">
+
+<!-- ================= SVG POSTER SCENES ================= -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#E4F0FB"/><stop offset="1" stop-color="#A6CBEC"/>
+  </linearGradient>
+  <linearGradient id="gSea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#4E93DA"/><stop offset="1" stop-color="#0F4B84"/>
+  </linearGradient>
+  <linearGradient id="gDusk" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7FB3E0"/><stop offset="1" stop-color="#F3F0E6"/>
+  </linearGradient>
+  <linearGradient id="gNight" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#071F44"/><stop offset="1" stop-color="#14417A"/>
+  </linearGradient>
+</defs>
+
+<!-- COLOSSEUM -->
+<symbol id="s-colosseum" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <circle cx="124" cy="27" r="15" fill="#F3F0E6" opacity=".9"/>
+  <rect y="76" width="160" height="24" fill="#177A4F"/>
+  <rect y="76" width="160" height="3" fill="#0F5F3D"/>
+  <g fill="#F3F0E6">
+    <rect x="24" y="30" width="106" height="46" rx="2"/>
+    <rect x="24" y="18" width="56" height="14" rx="2"/>
+  </g>
+  <g fill="#1B62B8">
+    <rect x="29" y="36" width="7" height="12" rx="3.5"/><rect x="40" y="36" width="7" height="12" rx="3.5"/>
+    <rect x="51" y="36" width="7" height="12" rx="3.5"/><rect x="62" y="36" width="7" height="12" rx="3.5"/>
+    <rect x="73" y="36" width="7" height="12" rx="3.5"/><rect x="84" y="36" width="7" height="12" rx="3.5"/>
+    <rect x="95" y="36" width="7" height="12" rx="3.5"/><rect x="106" y="36" width="7" height="12" rx="3.5"/>
+    <rect x="117" y="36" width="7" height="12" rx="3.5"/>
+    <rect x="29" y="56" width="7" height="14" rx="3.5"/><rect x="40" y="56" width="7" height="14" rx="3.5"/>
+    <rect x="51" y="56" width="7" height="14" rx="3.5"/><rect x="62" y="56" width="7" height="14" rx="3.5"/>
+    <rect x="73" y="56" width="7" height="14" rx="3.5"/><rect x="84" y="56" width="7" height="14" rx="3.5"/>
+    <rect x="95" y="56" width="7" height="14" rx="3.5"/><rect x="106" y="56" width="7" height="14" rx="3.5"/>
+    <rect x="117" y="56" width="7" height="14" rx="3.5"/>
+    <rect x="31" y="22" width="6" height="8" rx="3"/><rect x="44" y="22" width="6" height="8" rx="3"/>
+    <rect x="57" y="22" width="6" height="8" rx="3"/><rect x="70" y="22" width="6" height="8" rx="3"/>
+  </g>
+  <rect x="24" y="50" width="106" height="2" fill="#0B2E5E" opacity=".14"/>
+  <g fill="#0F5F3D"><ellipse cx="12" cy="66" rx="6" ry="16"/><ellipse cx="149" cy="70" rx="5" ry="13"/></g>
+</symbol>
+
+<!-- ROMAN STREET -->
+<symbol id="s-street" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <g fill="#F3F0E6">
+    <rect x="0" y="20" width="34" height="60"/><rect x="36" y="30" width="30" height="50"/>
+    <rect x="68" y="14" width="32" height="66"/><rect x="102" y="28" width="26" height="52"/>
+    <rect x="130" y="22" width="30" height="58"/>
+  </g>
+  <g fill="#1B62B8" opacity=".85">
+    <rect x="6" y="30" width="8" height="11" rx="1"/><rect x="20" y="30" width="8" height="11" rx="1"/>
+    <rect x="6" y="50" width="8" height="11" rx="1"/><rect x="20" y="50" width="8" height="11" rx="1"/>
+    <rect x="42" y="40" width="8" height="11" rx="1"/><rect x="54" y="40" width="8" height="11" rx="1"/>
+    <rect x="74" y="24" width="9" height="12" rx="1"/><rect x="87" y="24" width="9" height="12" rx="1"/>
+    <rect x="74" y="46" width="9" height="12" rx="1"/><rect x="87" y="46" width="9" height="12" rx="1"/>
+    <rect x="108" y="38" width="8" height="11" rx="1"/><rect x="136" y="32" width="8" height="11" rx="1"/>
+    <rect x="148" y="32" width="8" height="11" rx="1"/><rect x="136" y="52" width="8" height="11" rx="1"/>
+  </g>
+  <g fill="#177A4F">
+    <path d="M36 30h30v7H36z"/><path d="M102 28h26v7h-26z"/>
+  </g>
+  <rect y="80" width="160" height="20" fill="#0B2E5E" opacity=".12"/>
+  <rect y="80" width="160" height="20" fill="#EAE5D5"/>
+  <g>
+    <circle cx="46" cy="88" r="6" fill="#0B2E5E"/><circle cx="46" cy="88" r="2.4" fill="#EAE5D5"/>
+    <circle cx="72" cy="88" r="6" fill="#0B2E5E"/><circle cx="72" cy="88" r="2.4" fill="#EAE5D5"/>
+    <path d="M44 84c4-9 12-11 18-8l6 8h-8l-4-4-6 4z" fill="#1B62B8"/>
+    <path d="M62 76l6-6 3 2-6 6z" fill="#0B2E5E"/>
+  </g>
+</symbol>
+
+<!-- APERITIVO TABLE -->
+<symbol id="s-table" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="#1B62B8"/>
+  <rect y="72" width="160" height="28" fill="#F3F0E6"/>
+  <circle cx="46" cy="52" r="20" fill="#F3F0E6"/>
+  <circle cx="46" cy="52" r="14" fill="#DDEBF8"/>
+  <circle cx="46" cy="52" r="6" fill="#177A4F"/>
+  <path d="M96 26h12v20c0 6-2 8-2 14v12h-8V60c0-6-2-8-2-14z" fill="#177A4F"/>
+  <rect x="99" y="18" width="6" height="10" fill="#0F5F3D"/>
+  <path d="M120 40h16l-6 12v14h6v4h-16v-4h6V52z" fill="#F3F0E6"/>
+  <path d="M121 42h14l-2 5h-10z" fill="#DDEBF8"/>
+  <path d="M64 74c0-5 4-9 9-9s9 4 9 9z" fill="#F3F0E6"/>
+  <circle cx="24" cy="80" r="5" fill="#177A4F"/><circle cx="34" cy="82" r="4" fill="#0F5F3D"/>
+</symbol>
+
+<!-- TAORMINA HILL TOWN -->
+<symbol id="s-hilltown" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <circle cx="30" cy="24" r="12" fill="#F3F0E6" opacity=".9"/>
+  <path d="M0 62h160v38H0z" fill="url(#gSea)"/>
+  <path d="M0 62c26-4 42-26 62-26 22 0 30 16 52 16 20 0 30-6 46-10v20H0z" fill="#177A4F"/>
+  <path d="M0 62c26-4 42-26 62-26 10 0 18 4 24 8-14 6-22 12-40 18z" fill="#0F5F3D" opacity=".5"/>
+  <g fill="#F3F0E6">
+    <rect x="52" y="40" width="12" height="12"/><rect x="66" y="44" width="10" height="10"/>
+    <rect x="40" y="48" width="10" height="10"/><rect x="78" y="48" width="12" height="9"/>
+    <rect x="92" y="52" width="9" height="8"/>
+  </g>
+  <g fill="#1B62B8">
+    <rect x="55" y="44" width="3" height="4"/><rect x="69" y="47" width="3" height="4"/>
+    <rect x="43" y="51" width="3" height="4"/><rect x="82" y="51" width="3" height="4"/>
+  </g>
+  <path d="M58 40l6-6 6 6z" fill="#0B2E5E" opacity=".25"/>
+  <g fill="#0F5F3D"><ellipse cx="34" cy="56" rx="3.6" ry="10"/><ellipse cx="104" cy="58" rx="3.2" ry="9"/></g>
+  <g stroke="#DDEBF8" stroke-width="1.4" opacity=".55" fill="none">
+    <path d="M8 78h26"/><path d="M46 86h30"/><path d="M104 76h30"/><path d="M118 90h28"/>
+  </g>
+</symbol>
+
+<!-- ISOLA BELLA BAY -->
+<symbol id="s-bay" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <circle cx="122" cy="22" r="13" fill="#F3F0E6" opacity=".9"/>
+  <rect y="46" width="160" height="54" fill="url(#gSea)"/>
+  <path d="M0 46c14 0 22-18 36-18 10 0 14 8 18 16z" fill="#177A4F"/>
+  <path d="M160 46c-16 0-26-16-42-16-10 0-16 8-20 16z" fill="#0F5F3D"/>
+  <ellipse cx="80" cy="56" rx="20" ry="11" fill="#177A4F"/>
+  <ellipse cx="80" cy="53" rx="14" ry="7" fill="#0F5F3D" opacity=".55"/>
+  <path d="M60 60h40v3H60z" fill="#EAE5D5"/>
+  <g stroke="#DDEBF8" stroke-width="1.5" opacity=".6" fill="none">
+    <path d="M10 74h30"/><path d="M52 82h34"/><path d="M100 72h34"/><path d="M24 90h40"/><path d="M96 92h44"/>
+  </g>
+</symbol>
+
+<!-- GREEK THEATRE + ETNA -->
+<symbol id="s-theatre" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <path d="M96 56l24-32 24 32z" fill="#4E93DA"/>
+  <path d="M112 34h16l-8-10z" fill="#F3F0E6"/>
+  <ellipse cx="120" cy="20" rx="10" ry="5" fill="#F3F0E6" opacity=".8"/>
+  <rect y="56" width="160" height="44" fill="#177A4F"/>
+  <path d="M0 56h160v6H0z" fill="#0F5F3D" opacity=".4"/>
+  <g fill="#F3F0E6">
+    <rect x="16" y="26" width="60" height="8"/>
+    <rect x="18" y="34" width="10" height="30"/><rect x="34" y="34" width="10" height="30"/>
+    <rect x="50" y="34" width="10" height="30"/><rect x="66" y="34" width="10" height="22"/>
+  </g>
+  <g fill="#1B62B8" opacity=".9">
+    <rect x="28" y="38" width="6" height="20" rx="3"/><rect x="44" y="38" width="6" height="20" rx="3"/>
+    <rect x="60" y="38" width="6" height="16" rx="3"/>
+  </g>
+  <path d="M10 64h74v4H10z" fill="#EAE5D5"/>
+  <path d="M4 72h86v4H4z" fill="#EAE5D5" opacity=".8"/>
+  <path d="M0 80h94v4H0z" fill="#EAE5D5" opacity=".6"/>
+</symbol>
+
+<!-- BEACH -->
+<symbol id="s-beach" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <circle cx="26" cy="22" r="12" fill="#F3F0E6" opacity=".9"/>
+  <rect y="40" width="160" height="32" fill="url(#gSea)"/>
+  <rect y="70" width="160" height="30" fill="#EAE5D5"/>
+  <g stroke="#DDEBF8" stroke-width="1.6" opacity=".65" fill="none">
+    <path d="M8 50h28"/><path d="M52 58h32"/><path d="M100 48h32"/><path d="M120 62h30"/>
+  </g>
+  <g>
+    <path d="M22 72V56" stroke="#0B2E5E" stroke-width="2"/>
+    <path d="M6 56a16 9 0 0 1 32 0z" fill="#1B62B8"/>
+    <path d="M22 47a16 9 0 0 1 16 9H22z" fill="#F3F0E6"/>
+  </g>
+  <g>
+    <path d="M70 74V58" stroke="#0B2E5E" stroke-width="2"/>
+    <path d="M54 58a16 9 0 0 1 32 0z" fill="#177A4F"/>
+    <path d="M70 49a16 9 0 0 1 16 9H70z" fill="#F3F0E6"/>
+  </g>
+  <g>
+    <path d="M122 76V60" stroke="#0B2E5E" stroke-width="2"/>
+    <path d="M106 60a16 9 0 0 1 32 0z" fill="#1B62B8"/>
+    <path d="M122 51a16 9 0 0 1 16 9h-16z" fill="#F3F0E6"/>
+  </g>
+  <g fill="#0B2E5E" opacity=".55">
+    <circle cx="96" cy="66" r="3"/><path d="M92 68h14v2H92z"/>
+  </g>
+</symbol>
+
+<!-- SAILBOAT -->
+<symbol id="s-sail" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gDusk)"/>
+  <rect y="0" width="160" height="52" fill="url(#gSky)"/>
+  <circle cx="128" cy="24" r="14" fill="#F3F0E6" opacity=".92"/>
+  <rect y="52" width="160" height="48" fill="url(#gSea)"/>
+  <path d="M0 52c18-2 26-10 40-10s18 8 30 8 20-8 34-8 22 8 36 8v4H0z" fill="#177A4F" opacity=".55"/>
+  <g>
+    <path d="M64 62V22l26 40z" fill="#F3F0E6"/>
+    <path d="M60 62V34L42 62z" fill="#DDEBF8"/>
+    <path d="M36 62h62l-8 10H44z" fill="#0B2E5E"/>
+    <path d="M36 62h62l-2 3H38z" fill="#1B62B8"/>
+  </g>
+  <g stroke="#DDEBF8" stroke-width="1.6" opacity=".55" fill="none">
+    <path d="M8 80h32"/><path d="M56 86h36"/><path d="M108 78h34"/><path d="M100 92h44"/>
+  </g>
+</symbol>
+
+<!-- CATANIA DUOMO -->
+<symbol id="s-duomo" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <rect y="78" width="160" height="22" fill="#EAE5D5"/>
+  <g fill="#F3F0E6">
+    <rect x="46" y="42" width="68" height="36"/>
+    <path d="M46 42h68l-34-14z"/>
+    <rect x="72" y="20" width="16" height="10" rx="2"/>
+  </g>
+  <path d="M64 30a16 12 0 0 1 32 0z" fill="#1B62B8"/>
+  <circle cx="80" cy="14" r="3" fill="#177A4F"/>
+  <g fill="#1B62B8">
+    <rect x="56" y="54" width="9" height="18" rx="4.5"/>
+    <rect x="75" y="52" width="10" height="20" rx="5"/>
+    <rect x="95" y="54" width="9" height="18" rx="4.5"/>
+  </g>
+  <rect x="46" y="48" width="68" height="2" fill="#0B2E5E" opacity=".12"/>
+  <g fill="#177A4F">
+    <path d="M20 78V60" stroke="#177A4F" stroke-width="3"/>
+    <path d="M20 60c-8-4-12-10-10-16 6 2 9 6 10 10 1-6 5-10 11-11 1 8-4 14-11 17z"/>
+    <path d="M140 78V62" stroke="#177A4F" stroke-width="3"/>
+    <path d="M140 62c-7-3-11-9-9-15 5 2 8 5 9 9 1-5 5-9 10-10 1 7-3 13-10 16z"/>
+  </g>
+</symbol>
+
+<!-- MARKET -->
+<symbol id="s-market" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <rect x="0" y="0" width="160" height="34" fill="#F3F0E6"/>
+  <g fill="#1B62B8">
+    <rect x="8" y="10" width="8" height="10" rx="1"/><rect x="26" y="10" width="8" height="10" rx="1"/>
+    <rect x="126" y="10" width="8" height="10" rx="1"/><rect x="144" y="10" width="8" height="10" rx="1"/>
+  </g>
+  <g>
+    <path d="M4 34h72v10H4z" fill="#1B62B8"/>
+    <path d="M12 34h8v10h-8zM28 34h8v10h-8zM44 34h8v10h-8zM60 34h8v10h-8z" fill="#F3F0E6"/>
+    <path d="M84 34h72v10H84z" fill="#177A4F"/>
+    <path d="M92 34h8v10h-8zM108 34h8v10h-8zM124 34h8v10h-8zM140 34h8v10h-8z" fill="#F3F0E6"/>
+  </g>
+  <rect y="70" width="160" height="30" fill="#EAE5D5"/>
+  <g fill="#F3F0E6">
+    <rect x="10" y="58" width="52" height="14" rx="2"/><rect x="72" y="56" width="34" height="16" rx="2"/>
+    <rect x="114" y="60" width="38" height="12" rx="2"/>
+  </g>
+  <g fill="#177A4F">
+    <circle cx="20" cy="56" r="5"/><circle cx="31" cy="54" r="5"/><circle cx="42" cy="56" r="5"/><circle cx="53" cy="54" r="4"/>
+  </g>
+  <g fill="#1B62B8">
+    <circle cx="82" cy="52" r="5"/><circle cx="94" cy="52" r="5"/>
+    <rect x="118" y="52" width="30" height="8" rx="3"/>
+  </g>
+  <path d="M0 72h160v3H0z" fill="#0B2E5E" opacity=".1"/>
+</symbol>
+
+<!-- ORTIGIA WATERFRONT -->
+<symbol id="s-ortigia" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <circle cx="20" cy="20" r="11" fill="#F3F0E6" opacity=".85"/>
+  <g fill="#F3F0E6">
+    <rect x="2" y="34" width="24" height="30"/><rect x="28" y="26" width="28" height="38"/>
+    <rect x="58" y="38" width="22" height="26"/><rect x="82" y="28" width="30" height="36"/>
+    <rect x="114" y="36" width="24" height="28"/><rect x="140" y="30" width="20" height="34"/>
+  </g>
+  <g fill="#1B62B8" opacity=".85">
+    <rect x="7" y="42" width="6" height="8"/><rect x="17" y="42" width="6" height="8"/>
+    <rect x="34" y="34" width="6" height="8"/><rect x="46" y="34" width="6" height="8"/>
+    <rect x="34" y="50" width="6" height="8"/><rect x="46" y="50" width="6" height="8"/>
+    <rect x="64" y="46" width="6" height="8"/><rect x="88" y="36" width="6" height="8"/>
+    <rect x="100" y="36" width="6" height="8"/><rect x="88" y="50" width="6" height="8"/>
+    <rect x="120" y="44" width="6" height="8"/><rect x="146" y="38" width="6" height="8"/>
+  </g>
+  <g fill="#177A4F">
+    <rect x="58" y="38" width="22" height="5"/><rect x="114" y="36" width="24" height="5"/>
+  </g>
+  <rect y="64" width="160" height="36" fill="url(#gSea)"/>
+  <g opacity=".28" fill="#F3F0E6">
+    <rect x="2" y="64" width="24" height="14"/><rect x="28" y="64" width="28" height="18"/>
+    <rect x="82" y="64" width="30" height="16"/><rect x="140" y="64" width="20" height="15"/>
+  </g>
+  <g stroke="#DDEBF8" stroke-width="1.5" opacity=".5" fill="none">
+    <path d="M10 86h34"/><path d="M60 92h40"/><path d="M112 84h36"/>
+  </g>
+</symbol>
+
+<!-- ETNA OVER ROOFTOPS -->
+<symbol id="s-etna" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gDusk)"/>
+  <rect width="160" height="46" fill="url(#gSky)"/>
+  <ellipse cx="80" cy="16" rx="16" ry="7" fill="#F3F0E6" opacity=".7"/>
+  <path d="M20 62L80 18l60 44z" fill="#4E93DA"/>
+  <path d="M66 28h28l-14-10z" fill="#F3F0E6"/>
+  <path d="M80 18c-6 8-10 14-8 22 4-6 8-8 12-14z" fill="#F3F0E6" opacity=".5"/>
+  <rect y="62" width="160" height="38" fill="#0B2E5E"/>
+  <g fill="#F3F0E6">
+    <rect x="6" y="70" width="26" height="30"/><rect x="38" y="64" width="22" height="36"/>
+    <rect x="66" y="74" width="28" height="26"/><rect x="100" y="66" width="24" height="34"/>
+    <rect x="130" y="72" width="26" height="28"/>
+  </g>
+  <g fill="#1B62B8">
+    <rect x="12" y="78" width="6" height="8"/><rect x="22" y="78" width="6" height="8"/>
+    <rect x="44" y="72" width="6" height="8"/><rect x="44" y="86" width="6" height="8"/>
+    <rect x="74" y="82" width="6" height="8"/><rect x="84" y="82" width="6" height="8"/>
+    <rect x="106" y="74" width="6" height="8"/><rect x="106" y="88" width="6" height="8"/>
+    <rect x="138" y="80" width="6" height="8"/>
+  </g>
+  <g fill="#177A4F">
+    <rect x="66" y="74" width="28" height="4"/><rect x="130" y="72" width="26" height="4"/>
+  </g>
+</symbol>
+
+<!-- NIGHT TERRACE -->
+<symbol id="s-night" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gNight)"/>
+  <circle cx="128" cy="22" r="10" fill="#F3F0E6" opacity=".9"/>
+  <g fill="#F3F0E6" opacity=".8">
+    <circle cx="20" cy="16" r="1.2"/><circle cx="44" cy="26" r="1"/><circle cx="66" cy="12" r="1.3"/>
+    <circle cx="92" cy="30" r="1"/><circle cx="108" cy="14" r="1.1"/><circle cx="150" cy="40" r="1"/>
+    <circle cx="32" cy="40" r="1"/><circle cx="78" cy="42" r="1.1"/>
+  </g>
+  <path d="M0 66h160v34H0z" fill="#0B2E5E"/>
+  <g fill="#1B62B8" opacity=".85">
+    <rect x="0" y="56" width="20" height="12"/><rect x="26" y="50" width="18" height="18"/>
+    <rect x="130" y="52" width="16" height="16"/><rect x="150" y="58" width="10" height="10"/>
+  </g>
+  <g fill="#F3F0E6">
+    <path d="M52 62h18l-7 12v10h6v3H53v-3h6V74z"/>
+    <path d="M84 62h18l-7 12v10h6v3H85v-3h6V74z"/>
+  </g>
+  <path d="M53 64h16l-2 5H55z" fill="#4E93DA"/>
+  <path d="M85 64h16l-2 5H87z" fill="#177A4F"/>
+  <rect y="86" width="160" height="3" fill="#F3F0E6" opacity=".18"/>
+</symbol>
+
+<!-- PLANE -->
+<symbol id="s-plane" viewBox="0 0 160 100">
+  <rect width="160" height="100" fill="url(#gSky)"/>
+  <g fill="#F3F0E6" opacity=".95">
+    <ellipse cx="34" cy="70" rx="22" ry="10"/><ellipse cx="52" cy="74" rx="18" ry="8"/>
+    <ellipse cx="124" cy="34" rx="18" ry="8"/><ellipse cx="108" cy="38" rx="12" ry="6"/>
+  </g>
+  <g fill="#0B2E5E">
+    <path d="M52 52l52-12 14 4-46 16z"/>
+    <path d="M74 44l-8-14h6l14 12z"/>
+    <path d="M70 56l-6 12h6l10-10z"/>
+  </g>
+  <path d="M104 40l14 4-46 16z" fill="#1B62B8"/>
+  <g stroke="#F3F0E6" stroke-width="2" opacity=".7" stroke-linecap="round"><path d="M14 62h26"/></g>
+</symbol>
+</svg>
+
+<nav class="nav">
+  <div class="nav__tri"><i></i><i></i><i></i></div>
+  <div class="nav__inner">
+    <div class="nav__mark">Italia<span>’27</span></div>
+    <div class="nav__links" id="navlinks">
+      <a href="#overview">OVERVIEW</a>
+      <a href="#rome">ROME</a>
+      <a href="#taormina">TAORMINA</a>
+      <a href="#catania">CATANIA</a>
+      <a href="#food">FOOD</a>
+      <a href="#birthday">BIRTHDAY</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero__bg">
+    <svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-colosseum"/></svg>
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__in">
+    <div class="hero__kicker">2 TRAVELERS · 13 NIGHTS</div>
+    <h1>ITALY<em>Summer 2027</em></h1>
+    <div class="hero__sub">ROME → TAORMINA → CATANIA</div>
+    <div class="hero__meta">
+      <span class="hero__date">JULY 2 — 15</span>
+      <span class="hero__nights">13 nights of ruins, beaches, pasta, wine &amp; Sicilian summer.</span>
+    </div>
+    <div class="route"><span>🏛️ Rome</span><i></i><span>🌊 Taormina</span><i></i><span>🌋 Catania</span></div>
+    <a class="hero__cta" href="#overview">Start the trip <b>↓</b></a>
+  </div>
+</header>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="sec" id="overview">
+  <div class="sec__head rv">
+    <div class="rule"><i></i><i></i><i></i></div>
+    <h2>Three bases, <em>one summer.</em></h2>
+    <p class="sec__note">Rome is where we explore. Taormina is where we vacation. Catania is where we eat, wander and finish Sicily.</p>
+  </div>
+  <div class="dests">
+    <a class="dest rv" id="c-rome" href="#rome">
+      <div class="dest__ph">
+        <div class="ph r-3x4"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-colosseum"/></svg></div>
+        <div class="dest__cap"><div class="dest__num">i.</div><h3>Rome</h3><div class="dest__dates">JULY 2 — 6</div></div>
+      </div>
+      <div class="dest__body">
+        <ul><li>🏛️ Ancient Rome</li><li>🍝 Roman food</li><li>🍷 Wine</li><li>🪩 House music</li><li>🚄 Pompeii + Naples</li></ul>
+        <p class="dest__line">Ruins by day, negronis by eight.</p>
+      </div>
+    </a>
+    <a class="dest rv" id="c-taormina" href="#taormina">
+      <div class="dest__ph">
+        <div class="ph r-3x4"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-hilltown"/></svg></div>
+        <div class="dest__cap"><div class="dest__num">ii.</div><h3>Taormina</h3><div class="dest__dates">JULY 6 — 11</div></div>
+      </div>
+      <div class="dest__body">
+        <ul><li>🌊 Beach</li><li>🏛️ Greek Theatre</li><li>🌄 Castelmola</li><li>🛥️ Birthday boat</li><li>🎂 Birthday dinner</li></ul>
+        <p class="dest__line">Five days of doing gloriously little.</p>
+      </div>
+    </a>
+    <a class="dest rv" id="c-catania" href="#catania">
+      <div class="dest__ph">
+        <div class="ph r-3x4"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-etna"/></svg></div>
+        <div class="dest__cap"><div class="dest__num">iii.</div><h3>Catania</h3><div class="dest__dates">JULY 11 — 15</div></div>
+      </div>
+      <div class="dest__body">
+        <ul><li>🍅 Markets</li><li>🌊 Syracuse + Ortigia</li><li>🍝 Sicilian food</li><li>🌋 Etna views</li><li>🪩 Electronic nightlife</li></ul>
+        <p class="dest__line">The loud, hungry end of the island.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<div class="itin">
+<section class="sec" id="itinerary">
+  <div class="sec__head rv">
+    <div class="rule"><i></i><i></i><i></i></div>
+    <h2>Day by day</h2>
+    <p class="sec__note">Loose on purpose. Dinner is the anchor; everything else moves.</p>
+  </div>
+
+  <div class="filters rv" role="group" aria-label="Filter itinerary by city">
+    <button data-f="all" aria-pressed="true">ALL 13 NIGHTS</button>
+    <button data-f="rome" aria-pressed="false">ROME</button>
+    <button data-f="taormina" aria-pressed="false">TAORMINA</button>
+    <button data-f="catania" aria-pressed="false">CATANIA</button>
+  </div>
+
+  <!-- ROME -->
+  <div class="leg" id="rome">
+    <div class="leg__head rv"><h3>🏛️ Rome</h3><span>JUL 2 — 6 · 4 NIGHTS</span></div>
+    <div class="leg__bar rv"></div>
+    <div class="days">
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-street"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">FRI · JUL 2</div>
+          <h4>🛬 Arrival + Monti</h4>
+          <p>Arrive, check in, wander Monti, vintage shopping at Pifebo.</p>
+          <div class="meal"><b>DINNER</b><span>🍷 Fafiuché aperitivo → 🍝 Dar Bruttone</span></div>
+        </div>
+      </article>
+
+      <article class="day rv">
+        <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-colosseum"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">SAT · JUL 3</div>
+          <h4>🏛️ Ancient Rome</h4>
+          <p>Colosseum → Roman Forum → Palatine Hill → Trevi + wandering.</p>
+          <div class="meal"><b>DINNER</b><span>✨ Roscioli</span></div>
+          <div class="meal"><b>NIGHT</b><span>🪩 Rome house / electronic night</span></div>
+          <p class="fine">Best July event TBD — Forte Antenne / Utopia / outdoor party / pop-up.</p>
+        </div>
+      </article>
+
+      <article class="day rv">
+        <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-duomo"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">SUN · JUL 4</div>
+          <h4>⛪ Vatican + Centro Storico</h4>
+          <p>Vatican Museums + Sistine Chapel → Prati → Ponte Sant’Angelo → Piazza Navona → Pantheon.</p>
+          <div class="meal"><b>DINNER</b><span>🥟 JiaMo Lab</span></div>
+          <p class="fine">Easy evening before an early train.</p>
+        </div>
+      </article>
+
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-table"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">MON · JUL 5</div>
+          <h4>🚄 Pompeii + Naples</h4>
+          <p>Early train from Rome. Pompeii first, before the peak afternoon heat. Then the afternoon wandering, eating and drinking around Naples.</p>
+          <div class="meal"><b>LUNCH</b><span>🍕 Neapolitan pizza</span></div>
+          <div class="meal"><b>DINNER</b><span>🍽️ Bella Napoli Centro — early, then the train back</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- TAORMINA -->
+  <div class="leg" id="taormina">
+    <div class="leg__head rv"><h3>🌊 Taormina</h3><span>JUL 6 — 11 · 5 NIGHTS</span></div>
+    <div class="leg__bar rv"></div>
+    <div class="days">
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-hilltown"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">TUE · JUL 6</div>
+          <h4>✈️ Sicily arrival</h4>
+          <p>Rome → Catania → Taormina. Check in, pool, Villa Comunale and easy town wandering.</p>
+          <div class="meal"><b>DINNER</b><span>🍝 Osteria da Rita</span></div>
+        </div>
+      </article>
+
+      <article class="day rv">
+        <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-bay"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">WED · JUL 7</div>
+          <h4>🏖️ Isola Bella</h4>
+          <p>Isola Bella + Mazzarò. A full beach and swimming day.</p>
+          <div class="meal"><b>DINNER</b><span>🐟 Il Gabbiano — seaside seafood</span></div>
+        </div>
+      </article>
+
+      <article class="day rv">
+        <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-theatre"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">THU · JUL 8</div>
+          <h4>🏛️ Greek Theatre + Castelmola</h4>
+          <p>Theatre in the morning, then Castelmola for views and village wandering. Back for pool and siesta.</p>
+          <div class="meal"><b>LUNCH</b><span>🥩 Gallo Cedrone</span></div>
+          <div class="meal"><b>DINNER</b><span>🍷 Al Grappolo d’Uva — wine + small plates</span></div>
+        </div>
+      </article>
+
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-beach"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">FRI · JUL 9</div>
+          <h4>🏖️ Slow Sicily day</h4>
+          <p>Second beach and pool day. Shopping, Dior, Corso Umberto and Taormina wandering.</p>
+          <div class="meal"><b>DINNER</b><span>🏠 Cook at the Airbnb + Sicilian wine</span></div>
+        </div>
+      </article>
+
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-sail"/></svg></div>
+        <div class="day__in">
+          <span class="tag">THE BIG ONE</span>
+          <div class="day__date">SAT · JUL 10</div>
+          <h4>🎂 Ashley’s birthday</h4>
+          <p>🛥️ Private 2-hour Taormina Sailing boat — swimming + aperitif. Then siesta and pool.</p>
+          <div class="meal"><b>DINNER</b><span>🥂✨ Taverna Don Nino</span></div>
+          <p style="margin-top:11px"><a href="#birthday" style="color:var(--azzurri);font-weight:600;text-decoration:none;font-size:12px;letter-spacing:.08em">SEE THE FULL DAY ↓</a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- CATANIA -->
+  <div class="leg" id="catania">
+    <div class="leg__head rv"><h3>🌋 Catania</h3><span>JUL 11 — 15 · 4 NIGHTS</span></div>
+    <div class="leg__bar rv"></div>
+    <div class="days">
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-duomo"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">SUN · JUL 11</div>
+          <h4>🌋 Catania arrival</h4>
+          <p>Taormina → Catania. Piazza Duomo → Cathedral → Via Etnea → historic-centre wandering.</p>
+          <div class="meal"><b>DINNER</b><span>🌙 SVRGO or Deliziosa — terrace dinner</span></div>
+        </div>
+      </article>
+
+      <article class="day rv">
+        <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-market"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">MON · JUL 12</div>
+          <h4>🍅 Catania market day</h4>
+          <p>Markets, neighbourhoods and streets, with a casual market lunch somewhere along the way.</p>
+          <div class="meal"><b>DINNER</b><span>🌮 Carlito’s Mexican</span></div>
+          <div class="meal"><b>OPTIONAL</b><span>🍸 Lettera 82 — or a Sicily electronic night if the right event lands</span></div>
+        </div>
+      </article>
+
+      <article class="day rv">
+        <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-ortigia"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">TUE · JUL 13</div>
+          <h4>🌊 Syracuse + Ortigia</h4>
+          <p>Train to Syracuse. Ortigia, the waterfront, the streets and the food market — shop it before we leave.</p>
+          <div class="meal"><b>LUNCH</b><span>🍕 Schiticchio or casual local seafood</span></div>
+          <div class="meal"><b>DINNER</b><span>🏠 Cook the Ortigia haul at the Airbnb + wine</span></div>
+        </div>
+      </article>
+
+      <article class="day day--wide rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-etna"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">WED · JUL 14</div>
+          <h4>🌋 Final Sicilian day</h4>
+          <p>Morning at the Botanical Garden or Castello Ursino. Afternoon is hotel downtime, a nap, nothing.</p>
+          <div class="meal"><b>LUNCH</b><span>🐟 Scirocco Sicilian Fish Lab</span></div>
+          <div class="meal"><b>APERITIVO</b><span>🌋🍸 Rooftop Bar at Palace Catania — Etna view</span></div>
+          <div class="meal"><b>DINNER</b><span>🍝 U Fucularu — pistachio pasta, last one</span></div>
+        </div>
+      </article>
+
+      <article class="day day--wide day--fin rv">
+        <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-plane"/></svg></div>
+        <div class="day__in">
+          <div class="day__date">THU · JUL 15</div>
+          <h4 style="color:#fff">✈️ Home</h4>
+          <p>Thirteen nights, three bases, one very good July.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="strip rv">
+  <div class="ph r-1x1"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-street"/></svg></div>
+  <div class="ph r-1x1"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-bay"/></svg></div>
+  <div class="ph r-1x1"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-market"/></svg></div>
+  <div class="ph r-1x1"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-table"/></svg></div>
+</div>
+
+<!-- ============ FOOD ============ -->
+<section class="sec" id="food">
+  <div class="sec__head rv">
+    <div class="rule"><i></i><i></i><i></i></div>
+    <h2>Eat Italy</h2>
+    <p class="sec__note">Cheap lunches. Great dinners. No sad vacation food.</p>
+  </div>
+
+  <div class="phil rv">
+    <div><h4>☕ Breakfast</h4><p>Coffee, pastry, granita, Airbnb basics.</p></div>
+    <div><h4>🥪 Lunch</h4><p>Sandwiches, pizza al taglio, street food, markets, beach food.</p></div>
+    <div><h4>🍝 Dinner</h4><p>This is where we spend intentionally.</p></div>
+    <div><h4>🏠 Home</h4><p>Two market dinners at the Airbnb.</p></div>
+    <div><h4>🎂 Birthday</h4><p>One genuine splurge.</p></div>
+  </div>
+
+  <div class="menus">
+    <div class="menu rv" id="m-rome">
+      <div class="ph r-3x2"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-table"/></svg></div>
+      <div class="menu__in">
+        <h4>Rome</h4><div class="menu__sub">JULY 2 — 6</div>
+        <ul>
+          <li>🥪 <b>Mizio’s</b></li><li>🍕 <b>La Prezzemolina</b></li><li>🟠 <b>Supplì + Trapizzino</b></li>
+          <li>✨ <b>Roscioli</b></li><li>🍕 <b>Naples pizza</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu rv" id="m-taormina">
+      <div class="ph r-3x2"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-beach"/></svg></div>
+      <div class="menu__in">
+        <h4>Taormina</h4><div class="menu__sub">JULY 6 — 11</div>
+        <ul>
+          <li>🍧 <b>Bam Bar</b></li><li>🐟 <b>Il Gabbiano</b></li><li>🥩 <b>Gallo Cedrone</b></li>
+          <li>🟠 <b>Da Cristina</b></li><li>🍷 <b>Al Grappolo d’Uva</b></li><li>🎂 <b>Taverna Don Nino</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu rv" id="m-catania">
+      <div class="ph r-3x2"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-market"/></svg></div>
+      <div class="menu__in">
+        <h4>Catania</h4><div class="menu__sub">JULY 11 — 15</div>
+        <ul>
+          <li>🍅 <b>Catania market</b></li><li>🌮 <b>Carlito’s</b></li><li>🐟 <b>Scirocco</b></li>
+          <li>🍝 <b>U Fucularu</b></li><li>🍕 <b>Schiticchio / Syracuse</b></li><li>🏠 <b>Ortigia market dinner</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NIGHTLIFE ============ -->
+<div class="night">
+  <div class="night__bg"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-night"/></svg></div>
+  <section class="sec">
+    <div class="sec__head rv">
+      <div class="rule"><i></i><i></i><i></i></div>
+      <h2>After dark</h2>
+      <p class="sec__note">Two real music nights across thirteen. The rest is wine and long evenings.</p>
+    </div>
+    <div class="night__grid">
+      <div class="nightcard rv">
+        <div class="lbl">ROME · JULY 3</div>
+        <h4>🪩 One house night</h4>
+        <p>Best July 3 lineup wins.</p>
+        <ul class="watch"><li>Forte Antenne</li><li>Utopia</li><li>Summer pop-ups</li><li>Outdoor parties</li></ul>
+      </div>
+      <div class="nightcard rv">
+        <div class="lbl">SICILY · CATANIA</div>
+        <h4>🪩 One electronic night</h4>
+        <p>Best summer event wins.</p>
+        <ul class="watch"><li>Mercati Generali</li><li>Afrobar</li></ul>
+      </div>
+    </div>
+    <div class="quiet rv">
+      <span>🍷 Wine at dinner</span><span>🏠 Wine at the Airbnb</span><span>🌊 Slow Sicily evenings</span>
+    </div>
+    <div class="quiet rv" style="border-top:0;padding-top:4px">
+      <span style="color:rgba(255,255,255,.9)">Taormina stays cocktails, live music and beautiful evenings — Morgana, Casamatta, Chapeau!, or a Greek Theatre concert if a great artist is playing.</span>
+    </div>
+  </section>
+</div>
+
+<!-- ============ BIRTHDAY ============ -->
+<div class="bday" id="birthday">
+  <div class="bday__bg"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-sail"/></svg></div>
+  <section class="sec">
+    <div class="bday__frame rv">
+      <div class="lbl">JULY 10 — TAORMINA</div>
+      <h2>Ashley’s birthday<em>on the water, then at the table</em></h2>
+      <div class="bday__grid">
+        <div class="moment"><div class="lbl">MORNING</div><h4>🍧 Slow Sicilian breakfast</h4><p>Nowhere to be.</p></div>
+        <div class="moment"><div class="lbl">DAY</div><h4>🛥️ Private sailing boat</h4><p>Two hours along the Isola Bella coastline. Swimming, aperitif on board.</p></div>
+        <div class="moment"><div class="lbl">AFTERNOON</div><h4>😴 Siesta / pool</h4><p>The most important reservation of the day.</p></div>
+        <div class="moment"><div class="lbl">NIGHT</div><h4>🎂🥂 Taverna Don Nino</h4><p>Birthday dinner, wine, cocktails. The one genuine splurge.</p></div>
+      </div>
+      <p class="bday__seal">The whole trip bends around this day.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ BUDGET ============ -->
+<section class="sec" id="plan">
+  <div class="sec__head rv">
+    <div class="rule"><i></i><i></i><i></i></div>
+    <h2>The plan</h2>
+  </div>
+  <div class="plan">
+    <div class="rv">
+      <div class="plan__nums">
+        <div><div class="k">SAFE SAVINGS TARGET</div><div class="v">≈ $8,000</div><small>for two</small></div>
+        <div><div class="k">EXPECTED LANDING</div><div class="v blue">≈ $7.5–7.7K</div><small>where this actually lands</small></div>
+      </div>
+      <p class="foot-note">Built with intentional cushion — not a mandate to spend $8K.</p>
+    </div>
+    <div class="rv">
+      <p class="k-lbl">WHAT’S INSIDE IT</p>
+      <ul class="covers">
+        <li>✈️ Flights</li><li>🏨 Lodging</li><li>🍝 Food + drinks</li><li>🚆 Transport</li>
+        <li>🎂 Birthday dinner</li><li>🛥️ Private boat</li><li>🎟️ Attractions</li><li>🪩 Nightlife</li><li>🛍️ Shopping</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div>
+      <h3>13 nights. 3 bases. 1 birthday.</h3>
+      <div class="route"><span>🏛️ Rome</span><i></i><span>🌊 Taormina</span><i></i><span>🌋 Catania</span></div>
+    </div>
+    <small>JULY 2 — 15, 2027</small>
+  </div>
+</footer>
+
+<button class="top" id="toTop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var body = document.body;
+
+  var fBtns = document.querySelectorAll('.filters button');
+  function setFilter(f){
+    body.setAttribute('data-filter', f);
+    fBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.f === f)); });
+  }
+  fBtns.forEach(function(b){ b.addEventListener('click', function(){ setFilter(b.dataset.f); }); });
+
+  document.querySelectorAll('#navlinks a, .dest, a[href="#birthday"]').forEach(function(a){
+    a.addEventListener('click', function(){ setFilter('all'); });
+  });
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rv = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    rv.forEach(function(el){ io.observe(el); });
+  }
+
+  var navA = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var targets = navA.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        navA.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach(function(t){ spy.observe(t); });
+  }
+
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){
+      toTop.classList.toggle('show', window.scrollY > 620);
+      ticking = false;
+    });
+  }, { passive: true });
+  toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+})();
+</script>
+</body>
+</html>
