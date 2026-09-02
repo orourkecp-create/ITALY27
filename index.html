@@ -706,7 +706,7 @@ a{color:inherit}
 #themeToggle:active,#navToggle:active{transform:translateY(1px)}
 
 
-/* Correct sequential page flow */
+/* Sequential page-flow helper */
 .pagenav__spacer{min-height:1px}
 @media(max-width:640px){
   .pagenav__spacer{display:none}
@@ -2009,6 +2009,17 @@ a{color:inherit}
 </nav></div>
 </div>
 </main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div>
+      <h3>13 nights. 3 bases. 1 birthday.</h3>
+      <div class="route"><span>🏛️ Rome</span><i></i><span>🌊 Taormina</span><i></i><span>🌋 Catania</span></div>
+    </div>
+    <small>JULY 2 — 15, 2027</small>
+  </div>
+</footer>
+
 <button class="top" id="toTop" type="button" aria-label="Back to top">↑</button>
 
 
@@ -2155,6 +2166,28 @@ a{color:inherit}
 })();
 </script>
 
-</body>
 
-<!-- END OF ITALY27 — NOTHING SHOULD APPEAR AFTER THIS COMMENT EXCEPT </html>
+<!-- ITALY27 APP ENDS HERE -->
+<div id="italy27-end-sentinel" hidden></div>
+<script>
+(function(){
+  function pruneTrailingJunk(){
+    var end=document.getElementById('italy27-end-sentinel');
+    if(!end || !end.parentNode) return;
+    var n=end.nextSibling;
+    while(n){
+      var next=n.nextSibling;
+      n.parentNode.removeChild(n);
+      n=next;
+    }
+  }
+  window.addEventListener('load', pruneTrailingJunk);
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(pruneTrailingJunk, 0);
+    setTimeout(pruneTrailingJunk, 250);
+  });
+})();
+</script>
+
+</body>
+</html>
