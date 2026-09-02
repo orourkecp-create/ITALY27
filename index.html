@@ -200,6 +200,36 @@ a{color:inherit}
 .beats li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:2px;border-radius:1px;background:var(--acc);opacity:.75}
 .day--fin .beats li{color:rgba(255,255,255,.72)}
 .day--fin .beats li::before{background:var(--sky)}
+
+/* secondary saved-pin text */
+.pins{display:block;margin-top:1px;font-size:12.5px;line-height:1.4;color:var(--ink-38);font-weight:400}
+.beats--sub{margin-top:9px;padding-left:2px}
+.beats--sub li{font-size:13px;padding:2.5px 0 2.5px 15px}
+.beats--sub li::before{background:var(--ink-38);opacity:.6}
+
+/* Isola Bella vs Letojanni */
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}
+.contrast div{background:var(--off);border-radius:6px;padding:10px 12px;font-size:12.5px;color:var(--ink-60);line-height:1.4}
+.contrast b{display:block;font-family:var(--display);font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
+@media (max-width:430px){.contrast{grid-template-columns:1fr}}
+
+/* saved pin buckets */
+.pinsgrid{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad) clamp(54px,8vh,104px);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+@media (max-width:880px){.pinsgrid{grid-template-columns:1fr}}
+.pincard{background:var(--white);border:1px solid var(--ink-14);border-radius:8px;padding:16px 18px 19px}
+.pincard__city{font-size:10.5px;font-weight:700;letter-spacing:.16em;color:var(--azzurri);margin-bottom:10px}
+.pincard h5{font-family:var(--display);font-size:1.02rem;font-weight:700;margin:12px 0 3px;letter-spacing:-.01em}
+.pincard h5:first-of-type{margin-top:0}
+.pincard p{font-size:12.5px;color:var(--ink-38);line-height:1.45}
+
+/* 2027 watchlist */
+.watchcard{margin-top:clamp(16px,2.4vw,22px);border:1px solid rgba(255,255,255,.24);
+  border-radius:8px;padding:18px;background:rgba(255,255,255,.05)}
+.watchcard ul{list-style:none;margin:11px 0 0;padding:0}
+.watchcard li{font-size:14px;color:rgba(255,255,255,.8);padding:5px 0;line-height:1.45}
+.watchcard li b{font-weight:600;color:#fff}
+.watchcard > p{margin-top:11px;font-size:12.5px;color:rgba(255,255,255,.5);font-style:italic}
 .meal{display:flex;gap:10px;align-items:baseline;margin-top:11px;padding-top:10px;border-top:1px dashed var(--ink-38)}
 .meal + .meal{border-top:0;padding-top:0;margin-top:8px}
 .meal b{font-size:9.5px;letter-spacing:.14em;font-weight:700;color:var(--acc);flex:0 0 auto;
@@ -237,6 +267,8 @@ a{color:inherit}
 .menu ul{list-style:none;margin:11px 0 0;padding:0}
 .menu li{display:flex;gap:9px;align-items:baseline;font-size:14px;padding:6px 0;border-bottom:1px dotted var(--ink-38)}
 .menu li:last-child{border-bottom:0}
+.menu li i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;
+  color:var(--acc);flex:0 0 auto;min-width:30px;padding-top:3px}
 .menu li b{font-weight:500;font-family:var(--display);font-size:15px}
 #m-rome{--acc:var(--azzurri)}
 #m-taormina{--acc:var(--azzurri-lt)}
@@ -721,7 +753,7 @@ a{color:inherit}
         <div class="dest__cap"><div class="dest__num">i.</div><h3>Rome</h3><div class="dest__dates">JULY 2 — 6</div></div>
       </div>
       <div class="dest__body">
-        <ul><li>🏛️ Ancient Rome</li><li>🍝 Roman food</li><li>🍷 Wine</li><li>🪩 House music</li><li>🚄 Pompeii + Naples</li></ul>
+        <ul><li>🏛️ Ancient Rome</li><li>🛍️ Monti vintage</li><li>🍝 Roman food</li><li>🎧 Vinyl + house</li><li>🚄 Pompeii + Naples</li></ul>
         <p class="dest__line">Ruins by day, negronis by eight.</p>
       </div>
     </a>
@@ -731,7 +763,7 @@ a{color:inherit}
         <div class="dest__cap"><div class="dest__num">ii.</div><h3>Taormina</h3><div class="dest__dates">JULY 6 — 11</div></div>
       </div>
       <div class="dest__body">
-        <ul><li>🌊 Beach</li><li>🏛️ Greek Theatre</li><li>🌄 Castelmola</li><li>🛥️ Birthday boat</li><li>🎂 Birthday dinner</li></ul>
+        <ul><li>🌊 Isola Bella</li><li>☀️ Letojanni</li><li>🏛️ Greek Theatre</li><li>🛥️ Birthday boat</li><li>🎂 Armònia</li></ul>
         <p class="dest__line">Five days of doing gloriously little.</p>
       </div>
     </a>
@@ -741,7 +773,7 @@ a{color:inherit}
         <div class="dest__cap"><div class="dest__num">iii.</div><h3>Catania</h3><div class="dest__dates">JULY 11 — 15</div></div>
       </div>
       <div class="dest__body">
-        <ul><li>🍅 Markets</li><li>🌊 Syracuse + Ortigia</li><li>🍝 Sicilian food</li><li>🌋 Etna views</li><li>🪩 Electronic nightlife</li></ul>
+        <ul><li>🍅 Markets</li><li>👜 Flea market</li><li>🌊 Syracuse + Ortigia</li><li>🍝 Sicilian food</li><li>🌋 Etna views</li></ul>
         <p class="dest__line">The loud, hungry end of the island.</p>
       </div>
     </a>
@@ -769,18 +801,21 @@ a{color:inherit}
     <div class="leg__head rv"><h3>🏛️ Rome</h3><span>JUL 2 — 6 · 4 NIGHTS</span></div>
     <div class="leg__bar rv"></div>
     <div class="days">
+
       <article class="day day--wide rv">
         <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-street"/></svg></div>
         <div class="day__in">
           <div class="day__date">FRI · JUL 2</div>
-          <h4>🛬 Arrival + Monti</h4>
+          <h4>🛬 Arrival + Monti vintage</h4>
           <ul class="beats">
-            <li>Land, check into the hotel</li>
-            <li>Monti wandering + vintage at Pifebo</li>
+            <li>Arrive in Rome, check into the hotel</li>
+            <li>🛍️ Monti vintage wander<span class="pins">Pifebo · Humana Vintage · King Size · Vesti di Messalina</span></li>
+            <li>😴 Hotel downtime</li>
           </ul>
-          <div class="meal"><b>LUNCH</b><span>🥪 Mizio’s — casual Monti sandwich</span></div>
-          <div class="meal"><b>APERITIVO</b><span>🍷 Fafiuché — wine + one shared appetizer</span></div>
-          <div class="meal"><b>DINNER</b><span>🍝 Dar Bruttone</span></div>
+          <div class="meal"><b>LUNCH</b><span>🥪 Mizio’s</span></div>
+          <div class="meal"><b>APERITIVO</b><span>🍷 Fáfiuché — one glass, one shared bite, then walk 20 min toward Barberini</span></div>
+          <div class="meal"><b>DINNER</b><span>🍝 Colline Emiliane — Emilia-Romagna handmade pasta, not another Roman pasta night</span></div>
+          <p class="fine">🌙 Easy walk back to the hotel after.</p>
         </div>
       </article>
 
@@ -788,15 +823,17 @@ a{color:inherit}
         <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-colosseum"/></svg></div>
         <div class="day__in">
           <div class="day__date">SAT · JUL 3</div>
-          <h4>🏛️ Ancient Rome</h4>
+          <h4>🏛️ Ancient Rome + a night out</h4>
           <ul class="beats">
-            <li>Colosseum → Roman Forum → Palatine Hill</li>
-            <li>Trevi + wandering the centre</li>
+            <li>🏛️ Ancient Rome<span class="pins">Colosseum · Roman Forum · Palatine Hill</span></li>
+            <li>🚶 Afternoon city wander<span class="pins">Piazza Venezia · Vittoriano · Trevi · Centro</span></li>
+            <li>☕ Optional view stop<span class="pins">Caffetteria Italia al Vittoriano</span></li>
+            <li>😴 Hotel reset</li>
           </ul>
-          <div class="meal"><b>LUNCH</b><span>🍕 La Prezzemolina — Roman pizza al taglio</span></div>
-          <div class="meal"><b>DINNER</b><span>✨ Roscioli</span></div>
-          <div class="meal"><b>NIGHT</b><span>🪩 Rome house / electronic night — event TBD</span></div>
-          <p class="fine">Forte Antenne / Utopia / summer open-air party — best July lineup wins.</p>
+          <div class="meal"><b>LUNCH</b><span>🍕 La Prezzemolina</span></div>
+          <div class="meal"><b>DINNER</b><span>✨ Roscioli — the intentional Roman pasta dinner</span></div>
+          <div class="meal"><b>NIGHT</b><span>🪩 Rome house / electronic night — nothing locked</span></div>
+          <p class="fine">Best actual July 2027 event wins. Watching: Forte Antenne · Utopia · summer open-air parties.</p>
         </div>
       </article>
 
@@ -804,14 +841,15 @@ a{color:inherit}
         <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-duomo"/></svg></div>
         <div class="day__in">
           <div class="day__date">SUN · JUL 4</div>
-          <h4>⛪ Vatican + Centro Storico</h4>
+          <h4>⛪ Vatican + Old Rome + vinyl</h4>
           <ul class="beats">
-            <li>Vatican Museums + Sistine Chapel</li>
-            <li>Prati → Ponte Sant’Angelo → Piazza Navona → Pantheon</li>
+            <li>⛪ Vatican Museums + Sistine Chapel</li>
+            <li>🚶 Old Rome wander<span class="pins">Castel Sant’Angelo · Piazza Navona · Pantheon · Centro Storico</span></li>
+            <li>📚 Books + specialty pins along the route<span class="pins">Booktique · Passato Prossimo · Emporio Centrale · Bottega Libreria Antiquaria · Il Papiro · Antica Salumeria · Castroni</span></li>
           </ul>
-          <div class="meal"><b>LUNCH</b><span>🟠 Supplì + Trapizzino — Roman street-food lunch</span></div>
+          <div class="meal"><b>LUNCH</b><span>🟠 Roman street food — supplì + trapizzino</span></div>
           <div class="meal"><b>DINNER</b><span>🥟 JiaMo Lab</span></div>
-          <div class="meal"><b>NIGHT</b><span>🌙 Easy night before the early Pompeii train</span></div>
+          <div class="meal"><b>NIGHT</b><span>🎧 Frissón — vinyl / listening bar. Locked in.</span></div>
         </div>
       </article>
 
@@ -821,16 +859,17 @@ a{color:inherit}
           <div class="day__date">MON · JUL 5</div>
           <h4>🚄 Pompeii + Naples</h4>
           <ul class="beats">
-            <li>Early train out of Rome</li>
-            <li>Pompeii first, before the afternoon heat</li>
-            <li>Naples: wandering, food, drinks — no second sightseeing day</li>
+            <li>🚄 Early train out of Rome</li>
+            <li>🌋 Pompeii first</li>
+            <li>🚶 Naples: wandering, eating, drinking — no second sightseeing day</li>
           </ul>
           <div class="meal"><b>LUNCH</b><span>🍕 Neapolitan pizza</span></div>
-          <div class="meal"><b>DINNER</b><span>🍽️ Bella Napoli Centro — early</span></div>
-          <div class="meal"><b>TRAIN</b><span>🚄 Back to Rome after dinner</span></div>
-          <div class="meal"><b>NIGHT</b><span>🌙 Optional late-night Roman snack</span></div>
+          <div class="meal"><b>DINNER</b><span>🍽️ Wherever we are</span></div>
+          <ul class="beats beats--sub"><li>Still enjoying Naples → Bella Napoli Centro</li><li>Back in Rome and hungry → cheap Roman backup <span class="pins">Nannarella · whatever is near</span></li><li>Wrecked → snack near the hotel + bed</li></ul>
+          <p class="fine">Nothing booked for dinner. That is the point.</p>
         </div>
       </article>
+
     </div>
   </div>
 
@@ -839,17 +878,21 @@ a{color:inherit}
     <div class="leg__head rv"><h3>🌊 Taormina</h3><span>JUL 6 — 11 · 5 NIGHTS</span></div>
     <div class="leg__bar rv"></div>
     <div class="days">
+
       <article class="day day--wide rv">
         <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-hilltown"/></svg></div>
         <div class="day__in">
           <div class="day__date">TUE · JUL 6</div>
-          <h4>✈️ Sicily arrival</h4>
+          <h4>✈️ Sicily arrival + Old Town</h4>
           <ul class="beats">
-            <li>Rome → Catania → Taormina</li>
-            <li>Check in + pool</li>
-            <li>Villa Comunale + easy town wandering</li>
+            <li>✈️ Rome → Catania → Taormina, check in</li>
+            <li>🏊 Pool / downtime</li>
+            <li>🚶 Corso Umberto + Old Town wander</li>
+            <li>🛍️ Boutiques + ceramics along the way<span class="pins">Ceramiche Don Corleone · LA DoubleJ · DELL’OGLIO · MF Studio · FELICIOTTO</span></li>
+            <li>🍦 Sicilian sweets<span class="pins">Pasticceria Roberto · Novè Pistacchio · Don Peppina</span></li>
           </ul>
-          <div class="meal"><b>DINNER</b><span>🍝 Osteria da Rita</span></div>
+          <div class="meal"><b>DINNER</b><span>🍝 Osteria da Rita — casual, bustling, good value</span></div>
+          <div class="meal"><b>AFTER</b><span>🍷 Wine at the Airbnb</span></div>
         </div>
       </article>
 
@@ -857,13 +900,15 @@ a{color:inherit}
         <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-bay"/></svg></div>
         <div class="day__in">
           <div class="day__date">WED · JUL 7</div>
-          <h4>🏖️ Isola Bella</h4>
+          <h4>🏖️ Isola Bella + Mazzarò</h4>
           <ul class="beats">
-            <li>Isola Bella + Mazzarò</li>
-            <li>Full beach and swimming day</li>
+            <li>🏖️ Isola Bella + Mazzarò — go early, swim, accept that July is busy</li>
+            <li>😴 Pool / siesta afterward</li>
           </ul>
-          <div class="meal"><b>LUNCH</b><span>🥪 La Focaccia — casual beach food</span></div>
-          <div class="meal"><b>DINNER</b><span>🐟 Il Gabbiano — seaside seafood</span></div>
+          <div class="meal"><b>LUNCH</b><span>🥪 Casual beach lunch</span></div>
+          <div class="meal"><b>DINNER</b><span>🍝 Taverna Don Nino</span></div>
+          <div class="meal"><b>NIGHT</b><span>🍸 Morgana — our one planned Taormina cocktail night</span></div>
+          <p class="fine">Alternative cocktail pins: Casamatta · Daiquiri · Chapeau!</p>
         </div>
       </article>
 
@@ -873,12 +918,14 @@ a{color:inherit}
           <div class="day__date">THU · JUL 8</div>
           <h4>🏛️ Greek Theatre + Castelmola</h4>
           <ul class="beats">
-            <li>Greek Theatre in the morning</li>
-            <li>Castelmola: views + village wandering</li>
-            <li>Back down for pool and siesta</li>
+            <li>🏛️ Ancient Greek Theatre</li>
+            <li>🌄 Castelmola</li>
+            <li>😴 Back down for pool + siesta</li>
           </ul>
           <div class="meal"><b>LUNCH</b><span>🥩 Gallo Cedrone</span></div>
-          <div class="meal"><b>DINNER</b><span>🍷 Al Grappolo d’Uva — wine + small plates</span></div>
+          <div class="meal"><b>DINNER</b><span>🍷 Al Grappolo d’Uva</span></div>
+          <div class="meal"><b>AFTER</b><span>🏠 Airbnb wine</span></div>
+          <p class="fine">No extra bar needed tonight.</p>
         </div>
       </article>
 
@@ -886,13 +933,17 @@ a{color:inherit}
         <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-beach"/></svg></div>
         <div class="day__in">
           <div class="day__date">FRI · JUL 9</div>
-          <h4>🏖️ Slow Sicily day</h4>
+          <h4>☀️ Letojanni slow beach day</h4>
           <ul class="beats">
-            <li>Second beach and pool day</li>
-            <li>Corso Umberto: shopping, Dior, wandering</li>
+            <li>😴 Later, easier start</li>
+            <li>🚐 Taormina → Letojanni — lido or free beach</li>
+            <li>📖 Swim · read · relax</li>
+            <li>🛍️ Optional Corso Umberto wandering on the way back</li>
           </ul>
-          <div class="meal"><b>LUNCH</b><span>🟠 Rosticceria Da Cristina — arancini + Sicilian street food</span></div>
-          <div class="meal"><b>DINNER</b><span>🏠 Cook at the Airbnb + local wine</span></div>
+          <div class="meal"><b>LUNCH</b><span>🥪 Casual promenade lunch</span></div>
+          <div class="meal"><b>DINNER</b><span>🏠 Airbnb dinner + Sicilian wine</span></div>
+          <div class="contrast"><div><b>Isola Bella</b>🌊 iconic · dramatic · busy</div><div><b>Letojanni</b>☀️ spacious · relaxed · cheaper · slow</div></div>
+          <p class="fine">No reservation, no nightlife. The cheapest, slowest day of the trip.</p>
         </div>
       </article>
 
@@ -903,14 +954,16 @@ a{color:inherit}
           <div class="day__date">SAT · JUL 10</div>
           <h4>🎂 Ashley’s birthday</h4>
           <ul class="beats">
-            <li>Slow Sicilian breakfast</li>
-            <li>🛥️ Private 2-hour Taormina Sailing boat — swimming + aperitif</li>
-            <li>Siesta + pool</li>
+            <li>🥐 Slow Sicilian morning</li>
+            <li>🛥️ Private 2-hour Taormina Sailing boat — coastline · swimming · aperitif on board</li>
+            <li>😴 Pool / siesta / get ready</li>
           </ul>
-          <div class="meal"><b>DINNER</b><span>🥂✨ Taverna Don Nino</span></div>
+          <div class="meal"><b>DINNER</b><span>🎂🌊 Armònia at Mazzarò Sea Palace — waterfront, upscale, Sicilian seafood</span></div>
           <p style="margin-top:11px"><a href="#birthday" style="color:var(--azzurri);font-weight:600;text-decoration:none;font-size:12px;letter-spacing:.08em">SEE THE FULL DAY ↓</a></p>
+          <p class="fine">After: an optional walk or drink, only if we feel like it.</p>
         </div>
       </article>
+
     </div>
   </div>
 
@@ -919,16 +972,21 @@ a{color:inherit}
     <div class="leg__head rv"><h3>🌋 Catania</h3><span>JUL 11 — 15 · 4 NIGHTS</span></div>
     <div class="leg__bar rv"></div>
     <div class="days">
+
       <article class="day day--wide rv">
         <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-duomo"/></svg></div>
         <div class="day__in">
           <div class="day__date">SUN · JUL 11</div>
-          <h4>🌋 Catania arrival</h4>
+          <h4>🌋 Catania arrival + old city</h4>
           <ul class="beats">
-            <li>Taormina → Catania, check in</li>
-            <li>Piazza Duomo → Cathedral → Via Etnea → historic centre</li>
+            <li>🚆 Taormina → Catania, drop bags</li>
+            <li>👜 Sunday flea market — Mercato delle Pulci<span class="pins">it lands on our arrival day</span></li>
+            <li>🐘 Historic Catania wander<span class="pins">Piazza Duomo · Cathedral · Pescheria · Via Crociferi · Via Etnea</span></li>
+            <li>🛍️ Sicilian shops + wine along the way<span class="pins">Mizzica · Wine &amp; Charme · Nelson Sicily</span></li>
+            <li>😴 Hotel downtime</li>
           </ul>
-          <div class="meal"><b>DINNER</b><span>🌙 SVRGO or Deliziosa — terrace dinner</span></div>
+          <div class="meal"><b>DINNER</b><span>🍽️ SVRGO or Deliziosa — terrace dinner</span></div>
+          <div class="meal"><b>AFTER</b><span>🍷 Easy night / Airbnb wine</span></div>
         </div>
       </article>
 
@@ -936,13 +994,16 @@ a{color:inherit}
         <div class="ph r-16x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-market"/></svg></div>
         <div class="day__in">
           <div class="day__date">MON · JUL 12</div>
-          <h4>🍅 Catania market day</h4>
+          <h4>🍅 Markets + local Catania</h4>
           <ul class="beats">
-            <li>Catania markets, neighbourhoods and streets</li>
+            <li>🧺 Local market morning<span class="pins">Fera ’o Luni · Piazza Carlo Alberto</span></li>
+            <li>🚶 Local Catania wander<span class="pins">Stesicoro · Via Etnea · San Berillo</span></li>
+            <li>😴 Downtime</li>
           </ul>
           <div class="meal"><b>LUNCH</b><span>🐟 Casual market lunch</span></div>
           <div class="meal"><b>DINNER</b><span>🌮 Carlito’s Mexican</span></div>
-          <div class="meal"><b>OPTIONAL</b><span>🍸 Lettera 82 — or a Sicily electronic night if the right event lands</span></div>
+          <div class="meal"><b>OPTIONAL</b><span>🍸 Lettera 82 — or a Sicily electronic night if the lineup is right</span></div>
+          <p class="fine">Watching: Mercati Generali · Afrobar · best actual event wins. Nothing locked.</p>
         </div>
       </article>
 
@@ -952,12 +1013,13 @@ a{color:inherit}
           <div class="day__date">TUE · JUL 13</div>
           <h4>🌊 Syracuse + Ortigia</h4>
           <ul class="beats">
-            <li>Train to Syracuse</li>
-            <li>Ortigia: waterfront, streets, food market</li>
-            <li>Shop the market before we leave</li>
+            <li>🚆 Catania → Syracuse</li>
+            <li>🌊 Ortigia wander<span class="pins">historic streets · waterfront · market</span></li>
+            <li>🛍️ Buy food from the market for dinner</li>
+            <li>🚆 Return to Catania</li>
           </ul>
-          <div class="meal"><b>LUNCH</b><span>🍕 Schiticchio or casual local seafood</span></div>
-          <div class="meal"><b>DINNER</b><span>🏠 Cook the Ortigia haul at the Airbnb + wine</span></div>
+          <div class="meal"><b>LUNCH</b><span>🍕🐟 Schiticchio or casual local seafood</span></div>
+          <div class="meal"><b>DINNER</b><span>🏠 Cook the Ortigia haul + Sicilian wine</span></div>
         </div>
       </article>
 
@@ -965,14 +1027,15 @@ a{color:inherit}
         <div class="ph r-21x9"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-etna"/></svg></div>
         <div class="day__in">
           <div class="day__date">WED · JUL 14</div>
-          <h4>🌋 Final Sicilian day</h4>
+          <h4>🌋 Slow Sicilian finale</h4>
           <ul class="beats">
-            <li>Botanical Garden or Castello Ursino</li>
-            <li>Afternoon: hotel downtime, nap, nothing</li>
+            <li>🌿 Botanical Garden or 🏰 Castello Ursino — one easy cultural stop</li>
+            <li>😴 Hotel downtime</li>
+            <li>🛍️ Independent shopping<span class="pins">Boudoir 36</span></li>
           </ul>
           <div class="meal"><b>LUNCH</b><span>🐟 Scirocco Sicilian Fish Lab</span></div>
-          <div class="meal"><b>APERITIVO</b><span>🌋🍸 Rooftop Bar at Palace Catania — Etna view</span></div>
-          <div class="meal"><b>DINNER</b><span>🍝 U Fucularu — last pasta in Italy</span></div>
+          <div class="meal"><b>APERITIVO</b><span>🌋🍸 Rooftop Bar at Palace Catania — cocktails + Etna view</span></div>
+          <div class="meal"><b>DINNER</b><span>🍝 U Fucularu — final Sicilian pasta</span></div>
         </div>
       </article>
 
@@ -986,6 +1049,7 @@ a{color:inherit}
           </ul>
         </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -1003,7 +1067,7 @@ a{color:inherit}
   <div class="sec__head rv">
     <div class="rule"><i></i><i></i><i></i></div>
     <h2>Eat Italy</h2>
-    <p class="sec__note">Cheap lunches. Great dinners. No sad vacation food.</p>
+    <p class="sec__note" id="pins-note">Cheap lunches. Great dinners. No sad vacation food. Rome runs Emilia-Romagna → Roman → Chinese → Neapolitan.</p>
   </div>
 
   <div class="phil rv">
@@ -1020,9 +1084,11 @@ a{color:inherit}
       <div class="menu__in">
         <h4>Rome</h4><div class="menu__sub">JULY 2 — 6</div>
         <ul>
-          <li>🥪 <b>Mizio’s</b></li><li>🍕 <b>La Prezzemolina</b></li><li>🟠 <b>Supplì + Trapizzino</b></li>
-          <li>✨ <b>Roscioli</b></li><li>🥟 <b>JiaMo Lab</b></li>
-          <li>🍕 <b>Naples pizza</b></li><li>🍽️ <b>Bella Napoli Centro</b></li>
+          <li><i>7/2</i> 🍷 <b>Fáfiuché → Colline Emiliane</b></li>
+          <li><i>7/3</i> ✨ <b>Roscioli</b></li>
+          <li><i>7/4</i> 🥟 <b>JiaMo Lab</b></li>
+          <li><i>7/5</i> 🍕 <b>Naples + flexible dinner</b></li>
+          <li><i>lunch</i> 🥪 <b>Mizio’s · La Prezzemolina · supplì + trapizzino</b></li>
         </ul>
       </div>
     </div>
@@ -1031,9 +1097,12 @@ a{color:inherit}
       <div class="menu__in">
         <h4>Taormina</h4><div class="menu__sub">JULY 6 — 11</div>
         <ul>
-          <li>🥪 <b>La Focaccia</b></li><li>🐟 <b>Il Gabbiano</b></li><li>🥩 <b>Gallo Cedrone</b></li>
-          <li>🟠 <b>Da Cristina</b></li><li>🍷 <b>Al Grappolo d’Uva</b></li>
-          <li>🏠 <b>Airbnb dinner</b></li><li>🎂 <b>Taverna Don Nino</b></li>
+          <li><i>7/6</i> 🍝 <b>Osteria da Rita</b></li>
+          <li><i>7/7</i> 🍝 <b>Taverna Don Nino</b></li>
+          <li><i>7/8</i> 🍷 <b>Al Grappolo d’Uva</b></li>
+          <li><i>7/9</i> 🏠 <b>Airbnb dinner</b></li>
+          <li><i>7/10</i> 🎂🌊 <b>Armònia</b></li>
+          <li><i>lunch</i> 🥩 <b>Gallo Cedrone · Da Cristina · beach food</b></li>
         </ul>
       </div>
     </div>
@@ -1042,12 +1111,43 @@ a{color:inherit}
       <div class="menu__in">
         <h4>Catania</h4><div class="menu__sub">JULY 11 — 15</div>
         <ul>
-          <li>🍅 <b>Catania market lunch</b></li><li>🌮 <b>Carlito’s</b></li>
-          <li>🍕 <b>Schiticchio / Syracuse seafood</b></li><li>🏠 <b>Ortigia market dinner</b></li>
-          <li>🐟 <b>Scirocco</b></li><li>🌋🍸 <b>Rooftop Bar, Palace Catania</b></li>
-          <li>🍝 <b>U Fucularu</b></li>
+          <li><i>7/11</i> 🍽️ <b>SVRGO / Deliziosa</b></li>
+          <li><i>7/12</i> 🌮 <b>Carlito’s</b></li>
+          <li><i>7/13</i> 🏠 <b>Ortigia market dinner</b></li>
+          <li><i>7/14</i> 🍝 <b>U Fucularu</b></li>
+          <li><i>lunch</i> 🐟 <b>Market lunch · Schiticchio · Scirocco</b></li>
         </ul>
       </div>
+    </div>
+  </div>
+
+  <div class="pinsgrid rv">
+    <div class="pincard">
+      <div class="pincard__city">ROME</div>
+      <h5>🛍️ Monti vintage</h5>
+      <p>Pifebo · Humana · King Size · Vesti di Messalina</p>
+      <h5>📚 Old Rome books + specialty</h5>
+      <p>Booktique · Passato Prossimo · Emporio Centrale · Bottega Libreria Antiquaria · Il Papiro · Antica Salumeria · Castroni</p>
+    </div>
+    <div class="pincard">
+      <div class="pincard__city">TAORMINA</div>
+      <h5>🛍️ Corso Umberto shopping</h5>
+      <p>Ceramiche Don Corleone · LA DoubleJ · DELL’OGLIO · MF Studio · FELICIOTTO</p>
+      <h5>🍦 Sicilian sweets</h5>
+      <p>Pasticceria Roberto · Novè Pistacchio · Don Peppina</p>
+      <h5>🥪 Casual food</h5>
+      <p>Da Cristina · Focaccia Taormina · saved counter-service spots</p>
+      <h5>🍸 Cocktails + music</h5>
+      <p>Morgana · Casamatta · Daiquiri · Chapeau!</p>
+    </div>
+    <div class="pincard">
+      <div class="pincard__city">CATANIA</div>
+      <h5>🛍️ Sicilian shops + wine</h5>
+      <p>Mizzica · Wine &amp; Charme · Nelson Sicily</p>
+      <h5>🧴 Independent shopping</h5>
+      <p>Boudoir 36</p>
+      <h5>👜 Sunday flea market</h5>
+      <p>Mercato delle Pulci</p>
     </div>
   </div>
 </section>
@@ -1063,23 +1163,34 @@ a{color:inherit}
     </div>
     <div class="night__grid">
       <div class="nightcard rv">
-        <div class="lbl">ROME · JULY 3</div>
-        <h4>🪩 One house night</h4>
-        <p>Best July 3 lineup wins.</p>
+        <div class="lbl">ROME · TWO NIGHTS</div>
+        <h4>🎧 Frissón + one house night</h4>
+        <p>Frissón on 7/4 is locked — vinyl and listening bar. The electronic night stays open until the July 2027 lineups exist.</p>
         <ul class="watch"><li>Forte Antenne</li><li>Utopia</li><li>Summer pop-ups</li><li>Open-air electronic</li></ul>
       </div>
       <div class="nightcard rv">
-        <div class="lbl">SICILY · CATANIA</div>
-        <h4>🪩 One electronic night</h4>
-        <p>Best summer event wins.</p>
+        <div class="lbl">SICILY · ONE COCKTAIL NIGHT, MAYBE ONE CLUB</div>
+        <h4>🍸 Morgana + maybe Catania</h4>
+        <p>Taormina gets one cocktail and music night at Morgana. Catania only if a July event is genuinely worth it.</p>
         <ul class="watch"><li>Mercati Generali</li><li>Afrobar</li><li>Best Catania event</li></ul>
       </div>
     </div>
     <div class="quiet rv">
       <span>🍷 Wine at dinner</span><span>🏠 Wine at the Airbnb</span><span>🌊 Slow Sicily evenings</span>
     </div>
+
+    <div class="watchcard rv">
+      <div class="lbl">WATCH FOR 2027</div>
+      <ul>
+        <li>🎭 <b>Greek Theatre, Taormina</b> — check the July concert calendar</li>
+        <li>🪩 <b>Rome</b> — best July house / open-air event</li>
+        <li>🪩 <b>Catania</b> — best July electronic event</li>
+        <li>👗 <b>Catania</b> — Piazza Scammacca vintage market, if the dates overlap</li>
+      </ul>
+      <p>None of these are commitments. Just things to check when the calendars post.</p>
+    </div>
     <div class="quiet rv" style="border-top:0;padding-top:4px">
-      <span style="color:rgba(255,255,255,.9)">Taormina stays 🍷 wine, 🍸 cocktails, optional 🎶 live music and 🏠 Airbnb nights — Morgana, Casamatta or Chapeau! only if an evening asks for it.</span>
+      <span style="color:rgba(255,255,255,.9)">Everything else is 🍷 wine at dinner, 🏠 wine at the Airbnb and slow evenings. Casamatta · Daiquiri · Chapeau! stay as backups, not plans.</span>
     </div>
   </section>
 </div>
@@ -1090,12 +1201,12 @@ a{color:inherit}
   <section class="sec">
     <div class="bday__frame rv">
       <div class="lbl">JULY 10 — TAORMINA</div>
-      <h2>Ashley’s birthday<br><em>on the water, then at the table</em></h2>
+      <h2>Ashley’s birthday<br><em>on the water, then over Mazzarò Bay</em></h2>
       <div class="bday__grid">
         <div class="moment"><div class="lbl">MORNING</div><h4>🍧 Slow Sicilian breakfast</h4><p>Nowhere to be.</p></div>
-        <div class="moment"><div class="lbl">DAY</div><h4>🛥️ Private sailing boat</h4><p>Two hours along the Isola Bella coastline. Swimming, aperitif on board.</p></div>
+        <div class="moment"><div class="lbl">DAY</div><h4>🛥️ Private sailing boat</h4><p>Two hours along the Isola Bella coastline. Swimming, aperitif on board. ≈ €250, held at ~$300 with tip.</p></div>
         <div class="moment"><div class="lbl">AFTERNOON</div><h4>😴 Siesta / pool</h4><p>Nothing scheduled. Recover for dinner.</p></div>
-        <div class="moment"><div class="lbl">NIGHT</div><h4>🎂🥂 Taverna Don Nino</h4><p>Birthday dinner, wine, cocktails. The most important reservation of the day — the one genuine splurge.</p></div>
+        <div class="moment"><div class="lbl">NIGHT</div><h4>🎂🌊 Armònia</h4><p>Waterfront at the Mazzarò Sea Palace. Sicilian seafood over the bay — the most important reservation of the day, held at ≈ $300.</p></div>
       </div>
       <p class="bday__seal">The whole trip bends around this day.</p>
     </div>
