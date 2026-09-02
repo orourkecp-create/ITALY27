@@ -2,39 +2,350 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Italy — Summer 2027</title>
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0f3464">
+<style>
+:root{
+  --navy:#0f3464;--blue:#1f67c1;--sky:#dfeeff;--cream:#f7f0e5;--paper:#fffdf8;
+  --green:#26714f;--red:#b4483f;--gold:#c28a2f;--ink:#182236;--muted:#667085;
+  --line:#d7dde6;--shadow:0 10px 30px rgba(15,52,100,.10);--radius:20px;
+  --max:1160px;--navh:64px;
+}
+html[data-theme="dark"]{
+  --cream:#0f1723;--paper:#172131;--ink:#edf3fb;--muted:#aab7c8;--line:#2b3b50;
+  --shadow:0 10px 30px rgba(0,0,0,.28);--sky:#162a45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--cream)}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+button,a{font:inherit}
+a{color:inherit;text-decoration:none}
+strong{font-weight:800}
+[hidden]{display:none!important}
+
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 94%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+.nav__inner{height:var(--navh);max-width:var(--max);margin:auto;padding:0 18px;display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:12px}
+.nav__brand{justify-self:center;font-family:Georgia,serif;font-weight:900;color:var(--navy);font-size:20px}
+html[data-theme="dark"] .nav__brand{color:#fff}
+.iconbtn,.menubtn{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;cursor:pointer;min-height:40px}
+.iconbtn{width:40px;font-size:18px}
+.menubtn{padding:0 13px;font-weight:800;letter-spacing:.08em;font-size:12px;color:var(--blue)}
+.nav__links{max-width:var(--max);margin:auto;padding:0 18px 12px;display:none;grid-template-columns:repeat(3,1fr);gap:8px}
+.nav__links.open{display:grid}
+.nav__links a{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);font-size:12px;font-weight:800;text-align:center}
+.nav__links a.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+.page{min-height:calc(100vh - var(--navh))}
+.hero,.pagehero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0f3464,#1f67c1);color:#fff}
+.hero{min-height:72vh;display:flex;align-items:center}
+.hero__in,.pagehero__in,.sec{max-width:var(--max);margin:auto;width:100%;padding-left:20px;padding-right:20px}
+.hero__in{padding-top:72px;padding-bottom:72px}
+.hero h1,.pagehero h1{font-family:Georgia,serif;margin:0;line-height:.9;letter-spacing:-.04em}
+.hero h1{font-size:clamp(4rem,12vw,8.5rem)}
+.hero h1 em{display:block;font-size:.42em;font-weight:500;color:#f5d7a5}
+.hero__route{margin-top:22px;font-weight:900;letter-spacing:.08em}
+.hero__meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(255,255,255,.09);font-size:12px;font-weight:800}
+.hero__cta{display:inline-flex;margin-top:28px;padding:13px 18px;border-radius:999px;background:#fff;color:var(--navy);font-weight:900}
+
+.pagehero__in{padding-top:58px;padding-bottom:50px}
+.pagehero h1{font-size:clamp(3rem,8vw,6.2rem)}
+.pagehero p{max-width:700px;margin:12px 0 0;color:rgba(255,255,255,.85);font-size:18px}
+.kicker{font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#f5d7a5;margin-bottom:12px}
+
+.sec{padding-top:54px;padding-bottom:54px}
+.sec h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.6rem);line-height:1;margin:0 0 10px;color:var(--navy)}
+html[data-theme="dark"] .sec h2{color:#eaf2ff}
+.sec__note{color:var(--muted);margin:0 0 28px;max-width:740px}
+
+.grid3,.grid2,.daygrid,.budgetgrid,.statusgrid{display:grid;gap:16px}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.grid2{grid-template-columns:repeat(2,1fr)}
+.daygrid{grid-template-columns:repeat(2,1fr)}
+.card,.day,.budgetline,.statuscard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card{padding:22px}
+.card h3,.day h3{font-family:Georgia,serif;margin:0;color:var(--navy)}
+html[data-theme="dark"] .card h3,html[data-theme="dark"] .day h3{color:#fff}
+.card .big{font-family:Georgia,serif;font-size:40px;font-weight:900;color:var(--navy)}
+html[data-theme="dark"] .card .big{color:#fff}
+.card p{color:var(--muted);margin:8px 0 0}
+.card ul{padding-left:18px;margin:14px 0 0}
+.citybtn{display:inline-flex;margin-top:18px;color:var(--blue);font-weight:900}
+
+.day{overflow:hidden}
+.day__head{padding:16px 18px;background:var(--sky);border-bottom:1px solid var(--line)}
+.day__date{font-size:11px;letter-spacing:.14em;font-weight:900;color:var(--blue)}
+.day__head h3{font-size:25px;margin-top:3px}
+.day__body{padding:18px}
+.beats{padding-left:18px;margin:0 0 14px}
+.beats li{margin:5px 0}
+.meal{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.meal b{font-size:11px;letter-spacing:.1em;color:var(--blue)}
+.pins{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.compare>div{padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--sky)}
+.compare b{display:block}
+
+.bdayhero{background:linear-gradient(135deg,#143f76,#2f7da1)}
+.bdaymoments{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.moment{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.moment .lbl{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.moment h3{font-family:Georgia,serif;color:var(--navy);margin:8px 0}
+html[data-theme="dark"] .moment h3{color:#fff}
+.moment p{color:var(--muted);margin:0}
+
+.budgettop{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.budgettop>div{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.budgettop .label{font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--muted)}
+.budgettop .num{font-family:Georgia,serif;font-size:38px;font-weight:900;color:var(--navy)}
+html[data-theme="dark"] .budgettop .num{color:#fff}
+.budgetgrid{grid-template-columns:1fr 1fr}
+.budgetline{display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:start;padding:16px}
+.budgetline__icon{font-size:24px}
+.budgetline__body strong{display:block}
+.budgetline__body p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.budgetline__amt{font-weight:900;color:var(--green);white-space:nowrap}
+
+.statusgrid{grid-template-columns:repeat(3,1fr)}
+.statuscard{padding:18px}
+.statuscard h3{margin:0 0 10px}
+.statuscard ul{padding-left:18px;margin:0}
+.statuscard li{margin:5px 0}
+
+.pagenav{max-width:var(--max);margin:auto;padding:18px 20px 54px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pagenav a{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--paper);min-height:96px;display:flex;flex-direction:column;justify-content:center}
+.pagenav a:last-child{text-align:right;border-top:4px solid var(--blue)}
+.pagenav span{font-size:11px;letter-spacing:.14em;font-weight:900;color:#9aa7b9}
+.pagenav b{font-family:Georgia,serif;font-size:22px;color:var(--navy)}
+html[data-theme="dark"] .pagenav b{color:#fff}
+.pagenav--home{grid-template-columns:1fr}
+.pagenav--home a{justify-self:end;width:min(100%,560px)}
+
+.footer{padding:30px 20px;text-align:center;color:var(--muted);font-size:12px}
+
+@media(max-width:820px){
+  .grid3,.grid2,.daygrid,.budgetgrid,.statusgrid,.bdaymoments{grid-template-columns:1fr}
+  .nav__links{grid-template-columns:1fr 1fr}
+  .hero{min-height:66vh}
+  .meal{grid-template-columns:72px 1fr}
+  .budgettop{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  :root{--navh:58px}
+  .nav__inner{height:var(--navh);padding:0 12px}
+  .nav__links{grid-template-columns:1fr;padding:0 12px 12px}
+  .hero__in{padding-top:54px;padding-bottom:54px}
+  .hero h1{font-size:clamp(3.6rem,20vw,5.2rem)}
+  .pagehero__in{padding-top:42px;padding-bottom:38px}
+  .sec{padding-top:38px;padding-bottom:38px}
+  .budgetline{grid-template-columns:34px 1fr}
+  .budgetline__amt{grid-column:2}
+  .pagenav{grid-template-columns:1fr;padding-bottom:34px}
+  .pagenav a:last-child{text-align:left}
+}
+</style>
 <script>
 (function(){
-  function getTheme(){
-    try {
-      var t=localStorage.getItem('italy-theme');
-      if(t==='dark'||t==='light') return t;
-    } catch(e) {}
-    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-  }
-  function applyTheme(t){
-    document.documentElement.setAttribute('data-theme',t);
-    try { localStorage.setItem('italy-theme',t); } catch(e) {}
-    var b=document.getElementById('themeToggle');
-    if(b){
-      b.setAttribute('aria-pressed',String(t==='dark'));
-      b.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');
-    }
+  function theme(){
+    try{return localStorage.getItem('italy-theme')||'light'}catch(e){return'light'}
   }
   window.ItalyUI={
-    applyTheme:applyTheme,
-    toggleTheme:function(){
-      applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+    applyTheme:function(t){
+      document.documentElement.setAttribute('data-theme',t);
+      try{localStorage.setItem('italy-theme',t)}catch(e){}
+      var b=document.getElementById('themeToggle');
+      if(b){b.textContent=t==='dark'?'☀️':'☾';b.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode')}
     },
+    toggleTheme:function(){ItalyUI.applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')},
     toggleMenu:function(){
-      var links=document.getElementById('navlinks');
-      var toggle=document.getElementById('navToggle');
-      if(!links||!toggle) return;
-      var open=!links.classList.contains('open');
-      links.classList.toggle('open',open);
-      toggle.setAttribute('aria-expanded',String(open));
+      var n=document.getElementById('navlinks'),b=document.getElementById('navToggle');
+      if(!n||!b)return;
+      var open=!n.classList.contains('open');n.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false')
+    },
+    closeMenu:function(){var n=document.getElementById('navlinks'),b=document.getElementById('navToggle');if(n)n.classList.remove('open');if(b)b.setAttribute('aria-expanded','false')},
+    route:function(){
+      var p=(location.hash||'#/home').replace('#/','').split('/')[0]||'home';
+      var valid=['home','rome','taormina','catania','food','after-dark','birthday','budget','summary'];
+      if(valid.indexOf(p)<0)p='home';
+      document.querySelectorAll('.page').forEach(function(el){el.hidden=el.dataset.page!==p});
+      document.querySelectorAll('[data-nav]').forEach(function(a){a.classList.toggle('active',a.dataset.nav===p)});
+      ItalyUI.closeMenu();
+      window.scrollTo(0,0)
+    }
+  };
+  ItalyUI.applyTheme(theme());
+  window.addEventListener('hashchange',ItalyUI.route);
+  window.addEventListener('DOMContentLoaded',ItalyUI.route);
+})();
+</script>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav__inner">
+    <button class="iconbtn" id="themeToggle" type="button" onclick="ItalyUI.toggleTheme()" aria-label="Switch theme">☾</button>
+    <a class="nav__brand" href="#/home">Italia ’27</a>
+    <button class="menubtn" id="navToggle" type="button" onclick="ItalyUI.toggleMenu()" aria-expanded="false">☰ MENU</button>
+  </div>
+  <div class="nav__links" id="navlinks" onclick="if(event.target.closest('a'))ItalyUI.closeMenu()">
+    <a href="#/home" data-nav="home">HOME</a>
+    <a href="#/rome" data-nav="rome">ROME</a>
+    <a href="#/taormina" data-nav="taormina">TAORMINA</a>
+    <a href="#/catania" data-nav="catania">CATANIA</a>
+    <a href="#/food" data-nav="food">FOOD</a>
+    <a href="#/after-dark" data-nav="after-dark">AFTER DARK</a>
+    <a href="#/birthday" data-nav="birthday">BIRTHDAY</a>
+    <a href="#/budget" data-nav="budget">BUDGET</a>
+    <a href="#/summary" data-nav="summary">SUMMARY</a>
+  </div>
+</nav>
+
+<main>
+<section class="page" data-page="home">
+  <header class="hero">
+    <div class="hero__in">
+      <div class="kicker">2 TRAVELERS · 13 NIGHTS</div>
+      <h1>ITALY<em>Summer 2027</em></h1>
+      <div class="hero__route">ROME → TAORMINA → CATANIA</div>
+      <div class="hero__meta">
+        <span class="pill">JULY 2 — 15</span><span class="pill">🏛️ 4 nights Rome</span><span class="pill">🌊 5 nights Taormina</span><span class="pill">🌋 4 nights Catania</span>
+      </div>
+      <a class="hero__cta" href="#/rome">Start in Rome →</a>
+    </div>
+  </header>
+  <div class="sec">
+    <h2>The trip at a glance</h2>
+    <p class="sec__note">Rome is where we explore. Taormina is where we vacation. Catania is where we eat, wander and finish Sicily.</p>
+    <div class="grid3">
+      <div class="card"><h3>🏛️ Rome</h3><p><b>EXPLORE.</b> Ancient Rome, Monti vintage, great food and two nights built around music.</p><ul><li>Ancient Rome</li><li>Roscioli + Colline Emiliane</li><li>Frissón</li><li>Pompeii + Naples</li></ul><a class="citybtn" href="#/rome">Explore Rome →</a></div>
+      <div class="card"><h3>🌊 Taormina</h3><p><b>VACATION.</b> Blue water, beach days, our rooftop terrace pool, slow mornings and Ashley’s birthday.</p><ul><li>Isola Bella</li><li>Letojanni</li><li>Greek Theatre</li><li>Birthday boat + Armònia</li></ul><a class="citybtn" href="#/taormina">Explore Taormina →</a></div>
+      <div class="card"><h3>🌋 Catania</h3><p><b>LIVE SICILY.</b> Markets, lava-stone streets, Syracuse and one last stretch of Sicilian city life.</p><ul><li>Markets</li><li>Syracuse + Ortigia</li><li>Etna-view rooftop</li><li>Final Sicilian dinner</li></ul><a class="citybtn" href="#/catania">Explore Catania →</a></div>
+    </div>
+  </div>
+  <div class="sec">
+    <h2>Why this trip works</h2>
+    <div class="grid3">
+      <div class="card"><div class="big">🏛️</div><h3>History without a marathon</h3><p>Rome, Pompeii and the Greek Theatre — with breathing room around them.</p></div>
+      <div class="card"><div class="big">🌊</div><h3>Real beach time</h3><p>Isola Bella, Letojanni, a private boat and the rooftop pool waiting back at home.</p></div>
+      <div class="card"><div class="big">🍝</div><h3>We eat very well</h3><p>Great dinners balanced with markets, street food, casual lunches and a few meals at home.</p></div>
+    </div>
+  </div>
+  <nav class="pagenav pagenav--home"><a href="#/rome"><span>START TRIP →</span><b>🏛️ Rome</b></a></nav>
+</section>
+
+<section class="page" data-page="rome" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">JULY 2 — 6 · 4 NIGHTS</div><h1>🏛️ Rome</h1><p>Front-load the energy. Ancient Rome · vintage · food · music · Pompeii.</p></div></header>
+  <div class="sec">
+    <div class="daygrid">
+      <article class="day"><div class="day__head"><div class="day__date">FRI · JUL 2</div><h3>Arrival + Monti</h3></div><div class="day__body"><ul class="beats"><li>✈️ Arrive FCO</li><li>🚆 Leonardo Express → Termini<span class="pins">32 min nonstop · currently €14 pp</span></li><li>🚕 / 🚶 Short last leg to Monti</li><li>🛍️ Monti vintage wander<span class="pins">Pifebo · Humana · King Size · Vesti di Messalina</span></li></ul><div class="meal"><b>LUNCH</b><span>🥪 <strong>Mizio’s</strong></span></div><div class="meal"><b>APERITIVO</b><span>🍷 <strong>Fáfiuché</strong></span></div><div class="meal"><b>DINNER</b><span>🍝 <strong>Colline Emiliane</strong></span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">SAT · JUL 3</div><h3>Ancient Rome + night out</h3></div><div class="day__body"><ul class="beats"><li>Colosseum · Forum · Palatine</li><li>Vittoriano · Trevi · Centro</li></ul><div class="meal"><b>LUNCH</b><span>🍕 <strong>La Prezzemolina</strong></span></div><div class="meal"><b>DINNER</b><span>✨ <strong>Roscioli</strong></span></div><div class="meal"><b>NIGHT</b><span>🪩 Best July house / electronic event wins</span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">SUN · JUL 4</div><h3>Vatican + Old Rome + vinyl</h3></div><div class="day__body"><ul class="beats"><li>Vatican Museums + Sistine Chapel</li><li>Castel Sant’Angelo · Navona · Pantheon · Centro</li><li>📚 Books + specialty pins along the route<span class="pins">Booktique · Passato Prossimo · Emporio Centrale · Bottega Libreria Antiquaria · Il Papiro · Antica Salumeria · Castroni</span></li></ul><div class="meal"><b>LUNCH</b><span>🍴 Roman street food — supplì + trapizzino</span></div><div class="meal"><b>DINNER</b><span>🥟 <strong>JiaMo Lab</strong></span></div><div class="meal"><b>NIGHT</b><span>🎧 <strong>Frissón</strong> · vinyl / listening bar</span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">MON · JUL 5</div><h3>Pompeii + Naples</h3></div><div class="day__body"><ul class="beats"><li>Early train</li><li>Pompeii first</li><li>Naples wandering, eating and drinking</li></ul><div class="meal"><b>LUNCH</b><span>🍕 Neapolitan pizza</span></div><div class="meal"><b>DINNER</b><span>🍽️ Wherever we are<span class="pins">Bella Napoli Centro if still in Naples · cheap Roman backup if already back</span></span></div></div></article>
+    </div>
+  </div>
+  <nav class="pagenav"><a href="#/home"><span>← BACK</span><b>🇮🇹 Home</b></a><a href="#/taormina"><span>NEXT →</span><b>🌊 Taormina</b></a></nav>
+</section>
+
+<section class="page" data-page="taormina" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">JULY 6 — 11 · 5 NIGHTS</div><h1>🌊 Taormina</h1><p>Now we vacation. Beach · rooftop pool · swim · shop · eat · birthday.</p></div></header>
+  <div class="sec">
+    <div class="daygrid">
+      <article class="day"><div class="day__head"><div class="day__date">TUE · JUL 6</div><h3>Arrival + Old Town</h3></div><div class="day__body"><ul class="beats"><li>Rome → Catania → Taormina</li><li>🚶 Corso Umberto wander</li><li>🛍️ Boutiques + ceramics<span class="pins">Ceramiche Don Corleone · LA DoubleJ · DELL’OGLIO · MF Studio · FELICIOTTO</span></li><li>🍦 Sicilian sweets<span class="pins">Pasticceria Roberto · Novè Pistacchio · Don Peppina</span></li><li>🏊 Rooftop terrace pool / downtime</li></ul><div class="meal"><b>DINNER</b><span>🍝 <strong>Osteria da Rita</strong></span></div><div class="meal"><b>AFTER</b><span>🍷 Wine at Airbnb</span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">WED · JUL 7</div><h3>Isola Bella + Mazzarò</h3></div><div class="day__body"><ul class="beats"><li>Go early · swim · beach</li><li>🏊 Rooftop pool / siesta after</li></ul><div class="meal"><b>LUNCH</b><span>🥪 Casual beach lunch</span></div><div class="meal"><b>DINNER</b><span>🍝 <strong>Taverna Don Nino</strong></span></div><div class="meal"><b>NIGHT</b><span>🍸 <strong>Morgana</strong><span class="pins">Backups: Casamatta · Daiquiri · Chapeau!</span></span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">THU · JUL 8</div><h3>Greek Theatre + Castelmola</h3></div><div class="day__body"><ul class="beats"><li>🏛️ Ancient Greek Theatre</li><li>🌄 Castelmola</li><li>🏊 Rooftop terrace pool / downtime</li></ul><div class="meal"><b>LUNCH</b><span>🥩 <strong>Gallo Cedrone</strong></span></div><div class="meal"><b>DINNER</b><span>🍷 <strong>Al Grappolo d’Uva</strong></span></div><div class="meal"><b>AFTER</b><span>🏠 Airbnb wine</span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">FRI · JUL 9</div><h3>Letojanni slow beach day</h3></div><div class="day__body"><div class="compare"><div><b>ISOLA BELLA</b>🌊 iconic · dramatic · busy</div><div><b>LETOJANNI</b>☀️ spacious · relaxed · cheaper · slow</div></div><ul class="beats"><li>Later start · lido or free beach</li><li>Swim · read · relax</li><li>🏊 Optional final rooftop swim</li></ul><div class="meal"><b>LUNCH</b><span>🥪 Casual promenade lunch</span></div><div class="meal"><b>DINNER</b><span>🏠 Airbnb dinner + Sicilian wine</span></div></div></article>
+      <article class="day"><div class="day__head"><div class="day__date">SAT · JUL 10</div><h3>🎂 Ashley’s birthday</h3></div><div class="day__body"><ul class="beats"><li>Slow Sicilian morning</li><li>🛥️ Private 2-hour boat · swim + aperitif</li><li>🏊 Rooftop terrace pool / siesta / get ready</li></ul><div class="meal"><b>DINNER</b><span>🌊 <strong>Armònia</strong> · Mazzarò Sea Palace</span></div><a class="citybtn" href="#/birthday">See the full birthday →</a></div></article>
+    </div>
+  </div>
+  <nav class="pagenav"><a href="#/rome"><span>← BACK</span><b>🏛️ Rome</b></a><a href="#/catania"><span>NEXT →</span><b>🌋 Catania</b></a></nav>
+</section>
+
+<section class="page" data-page="catania" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">JULY 11 — 15 · 4 NIGHTS</div><h1>🌋 Catania</h1><p>Finish local. Markets · streets · Syracuse · wine · Sicily.</p></div></header>
+  <div class="sec"><div class="daygrid">
+    <article class="day"><div class="day__head"><div class="day__date">SUN · JUL 11</div><h3>Arrival + Old Catania</h3></div><div class="day__body"><ul class="beats"><li>Taormina → Catania</li><li>👜 Mercato delle Pulci</li><li>🐘 Piazza Duomo · Cathedral · Pescheria · Via Crociferi · Via Etnea</li><li>🛍️ Sicilian shops + wine<span class="pins">Mizzica · Wine & Charme · Nelson Sicily</span></li></ul><div class="meal"><b>DINNER</b><span>🍽️ <strong>SVRGO</strong> or <strong>Deliziosa</strong></span></div><div class="meal"><b>AFTER</b><span>🍷 Wine we picked up + slow night</span></div></div></article>
+    <article class="day"><div class="day__head"><div class="day__date">MON · JUL 12</div><h3>Markets + local Catania</h3></div><div class="day__body"><ul class="beats"><li>🧺 Fera ’o Luni · Piazza Carlo Alberto</li><li>Stesicoro · Via Etnea · San Berillo</li></ul><div class="meal"><b>LUNCH</b><span>🐟 Casual market lunch</span></div><div class="meal"><b>DINNER</b><span>🌮 <strong>Carlito’s</strong></span></div><div class="meal"><b>OPTIONAL</b><span>🍸 <strong>Lettera 82</strong> or an electronic night if the lineup earns it</span></div></div></article>
+    <article class="day"><div class="day__head"><div class="day__date">TUE · JUL 13</div><h3>Syracuse + Ortigia</h3></div><div class="day__body"><ul class="beats"><li>Train to Syracuse</li><li>Ortigia streets · waterfront · market</li><li>Buy dinner ingredients from the market</li></ul><div class="meal"><b>LUNCH</b><span>🍕 <strong>Schiticchio</strong> or casual seafood</span></div><div class="meal"><b>DINNER</b><span>🏠 Cook the Ortigia market haul + wine</span></div></div></article>
+    <article class="day"><div class="day__head"><div class="day__date">WED · JUL 14</div><h3>Slow Sicilian finale</h3></div><div class="day__body"><ul class="beats"><li>🌿 Botanical Garden OR 🏰 Castello Ursino</li><li>😴 Hotel downtime</li><li>🧴 Boudoir 36</li></ul><div class="meal"><b>LUNCH</b><span>🐟 <strong>Scirocco Sicilian Fish Lab</strong></span></div><div class="meal"><b>APERITIVO</b><span>🌋🍸 <strong>Rooftop Bar at Palace Catania</strong></span></div><div class="meal"><b>DINNER</b><span>🍝 <strong>U Fucularu</strong></span></div></div></article>
+  </div></div>
+  <nav class="pagenav"><a href="#/taormina"><span>← BACK</span><b>🌊 Taormina</b></a><a href="#/food"><span>NEXT →</span><b>🍝 Food</b></a></nav>
+</section>
+
+<section class="page" data-page="food" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">THE HIGH / LOW RHYTHM</div><h1>🍝 Eat Italy</h1><p>Great dinners. Cheap lunches. Markets. Wine. No sad vacation food.</p></div></header>
+  <div class="sec"><div class="grid3">
+    <div class="card"><h3>🏛️ Rome</h3><ul><li>🍷 <strong>Fáfiuché</strong> → 🍝 <strong>Colline Emiliane</strong></li><li>✨ <strong>Roscioli</strong></li><li>🥟 <strong>JiaMo Lab</strong></li><li>🍕 Naples</li></ul></div>
+    <div class="card"><h3>🌊 Taormina</h3><ul><li>🍝 <strong>Osteria da Rita</strong></li><li>🍝 <strong>Taverna Don Nino</strong></li><li>🍷 <strong>Al Grappolo d’Uva</strong></li><li>🏠 Airbnb dinner</li><li>🎂 <strong>Armònia</strong></li></ul></div>
+    <div class="card"><h3>🌋 Catania</h3><ul><li>🍽️ <strong>SVRGO</strong> / <strong>Deliziosa</strong></li><li>🌮 <strong>Carlito’s</strong></li><li>🏠 Ortigia market dinner</li><li>🍝 <strong>U Fucularu</strong></li></ul></div>
+  </div></div>
+  <nav class="pagenav"><a href="#/catania"><span>← BACK</span><b>🌋 Catania</b></a><a href="#/after-dark"><span>NEXT →</span><b>🪩 After dark</b></a></nav>
+</section>
+
+<section class="page" data-page="after-dark" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">TWO REAL MUSIC NIGHTS</div><h1>🪩 After dark</h1><p>The rest is wine and long evenings.</p></div></header>
+  <div class="sec"><div class="grid3">
+    <div class="card"><h3>Rome</h3><p>🎧 <strong>Frissón</strong> — vinyl / listening bar.</p><p>🪩 One proper house/electronic night. Watch Forte Antenne, Utopia and summer open-air parties.</p></div>
+    <div class="card"><h3>Taormina</h3><p>🍸 <strong>Morgana</strong> — our one planned cocktail/music night.</p><p>Backups: Casamatta · Daiquiri · Chapeau!</p></div>
+    <div class="card"><h3>Catania</h3><p>🪩 One electronic night only if the actual July lineup is worthwhile.</p><p>Watch: Mercati Generali · Afrobar.</p></div>
+  </div></div>
+  <nav class="pagenav"><a href="#/food"><span>← BACK</span><b>🍝 Food</b></a><a href="#/birthday"><span>NEXT →</span><b>🎂 Birthday</b></a></nav>
+</section>
+
+<section class="page" data-page="birthday" hidden>
+  <header class="pagehero bdayhero"><div class="pagehero__in"><div class="kicker">JULY 10 · TAORMINA</div><h1>🎂 Ashley’s birthday</h1><p>On the water, then over Mazzarò Bay.</p></div></header>
+  <div class="sec"><div class="bdaymoments">
+    <div class="moment"><div class="lbl">MORNING</div><h3>🍧 Slow Sicilian morning</h3><p>Nowhere to be.</p></div>
+    <div class="moment"><div class="lbl">DAY</div><h3>🛥️ Private sailing boat</h3><p>Two hours along the coast. Swimming + onboard aperitif. ≈ $300 planning hold with tip/cushion.</p></div>
+    <div class="moment"><div class="lbl">AFTERNOON</div><h3>🏊 Rooftop pool / siesta</h3><p>Nothing scheduled. Cool off, relax, get ready.</p></div>
+    <div class="moment"><div class="lbl">NIGHT</div><h3>🌊 <strong>Armònia</strong></h3><p>Mazzarò Sea Palace. Waterfront birthday dinner overlooking the bay. ≈ $300 planning hold.</p></div>
+  </div></div>
+  <nav class="pagenav"><a href="#/after-dark"><span>← BACK</span><b>🪩 After dark</b></a><a href="#/budget"><span>NEXT →</span><b>💰 The money</b></a></nav>
+</section>
+
+<section class="page" data-page="budget" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">FOR TWO</div><h1>💰 The money</h1><p>Expected landing ≈ $7.5–7.7K. Safe target ≈ $8K. The difference is intentional padding.</p></div></header>
+  <div class="sec">
+    <div class="budgettop"><div><div class="label">EXPECTED LANDING</div><div class="num">≈ $7,500–7,700</div></div><div><div class="label">SAFE SAVINGS TARGET</div><div class="num">≈ $8,000</div></div></div>
+    <h2>Where the money goes</h2><p class="sec__note">Working allocations below sum to about the midpoint of the expected range. They are planning numbers, not booked prices.</p>
+    <div class="budgetgrid">
+      <div class="budgetline"><div class="budgetline__icon">✈️</div><div class="budgetline__body"><strong>Flights</strong><p>NYC → Rome, Rome → Sicily, Catania → home, with the luggage assumption carried here.</p></div><div class="budgetline__amt">≈ $1,800</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🏨</div><div class="budgetline__body"><strong>Lodging</strong><p>4 Rome nights + 5 Taormina nights + 4 Catania nights.</p></div><div class="budgetline__amt">≈ $2,050</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🧾</div><div class="budgetline__body"><strong>Tourist taxes + lodging overhead</strong><p>City taxes / local fees that may be collected separately.</p></div><div class="budgetline__amt">≈ $100</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🍝</div><div class="budgetline__body"><strong>Food + drinks</strong><p>Simple breakfasts, casual lunches, intentional dinners, wine, aperitivo and cocktails. Birthday dinner is separate below.</p></div><div class="budgetline__amt">≈ $1,500</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🚆</div><div class="budgetline__body"><strong>Intercity + local transport</strong><p>Rome/Sicily movement, Pompeii/Naples, Syracuse, local trains/buses and normal transit.</p></div><div class="budgetline__amt">≈ $550</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🚆</div><div class="budgetline__body"><strong>FCO → Monti arrival</strong><p>Leonardo Express + short Termini last leg. This is inside the transport allocation above, shown separately for clarity.</p></div><div class="budgetline__amt">≈ $50</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🎟️</div><div class="budgetline__body"><strong>Attractions + sightseeing</strong><p>Ancient Rome, Vatican, Pompeii, Greek Theatre and selective paid history.</p></div><div class="budgetline__amt">≈ $350</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🏖️</div><div class="budgetline__body"><strong>Beach spending</strong><p>Selective chairs/lido setup and beach incidentals; rooftop pool reduces the need for extra paid beach days.</p></div><div class="budgetline__amt">≈ $150</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🛥️</div><div class="budgetline__body"><strong>Birthday boat</strong><p>Private 2-hour Taormina boat, including tip/cushion.</p></div><div class="budgetline__amt">≈ $300</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🎂</div><div class="budgetline__body"><strong>Birthday dinner — Armònia</strong><p>Dedicated special-occasion dinner hold, not counted again in food.</p></div><div class="budgetline__amt">≈ $300</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🪩</div><div class="budgetline__body"><strong>Nightlife + music</strong><p>Frissón, Morgana and 1–2 worthwhile electronic events including normal cover/ticket/drinks.</p></div><div class="budgetline__amt">≈ $250</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🛍️</div><div class="budgetline__body"><strong>Shopping</strong><p>Vintage, ceramics, boutiques and independent Sicilian shops.</p></div><div class="budgetline__amt">≈ $150</div></div>
+      <div class="budgetline"><div class="budgetline__icon">🧳</div><div class="budgetline__body"><strong>Normal travel overhead</strong><p>Small fees, last-mile rides, water and miscellaneous travel friction.</p></div><div class="budgetline__amt">≈ $100</div></div>
+    </div>
+  </div>
+  <div class="sec"><h2>Where we’re at</h2><div class="statusgrid">
+    <div class="statuscard"><h3>✓ Chosen</h3><ul><li>Rome core itinerary + Frissón</li><li>Isola Bella + Letojanni</li><li>Birthday boat + Armònia</li><li>Catania markets + Syracuse</li></ul></div>
+    <div class="statuscard"><h3>👀 Watch for 2027</h3><ul><li>Greek Theatre concerts</li><li>Rome summer house/open-air events</li><li>Catania electronic events</li><li>Piazza Scammacca vintage dates</li></ul></div>
+    <div class="statuscard"><h3>🟡 Book / confirm later</h3><ul><li>Final airfare</li><li>Timed attraction tickets</li><li>Restaurant reservations</li><li>Birthday boat + Armònia reservation</li></ul></div>
+  </div></div>
+  <nav class="pagenav"><a href="#/birthday"><span>← BACK</span><b>🎂 Birthday</b></a><a href="#/summary"><span>NEXT →</span><b>📖 Trip summary</b></a></nav>
+</section>
+
+<section class="page" data-page="summary" hidden>
+  <header class="pagehero"><div class="pagehero__in"><div class="kicker">JULY 2 — 15, 2027</div><h1>📖 Our Italy</h1><p>Ruins, markets, beaches, pasta, wine, music and one very good birthday.</p></div></header>
+  <div class="sec"><div class="grid3">
+    <div class="card"><h3>🏛️ Rome</h3><p>Four nights exploring hard: ancient history, vintage, destination dinners, Frissón and Pompeii/Naples.</p></div>
+    <div class="card"><h3>🌊 Taormina</h3><p>Five nights slowing down: beaches, rooftop terrace pool, Greek Theatre, private birthday boat and Armònia.</p></div>
+    <div class="card"><h3>🌋 Catania</h3><p>Four nights finishing local: markets, Syracuse/Ortigia, Etna-view cocktails and one final Sicilian dinner.</p></div>
+  </div></div>
+  <div class="sec"><div class="budgettop"><div><div class="label">EXPECTED</div><div class="num">≈ $7.5–7.7K</div></div><div><div class="label">SAFE TARGET</div><div class="num">≈ $8K</div></div></div></div>
+  <nav class="pagenav"><a href="#/budget"><span>← BACK</span><b>💰 The money</b></a><a href="#/home"><span>START OVER →</span><b>🇮🇹 Home</b></a></nav>
+</section>
+</main>
+<footer class="footer">ITALY · JULY 2 — 15, 2027 · ROME → TAORMINA → CATANIA</footer>
+</body>
+</html>      toggle.setAttribute('aria-expanded',String(open));
       var txt=toggle.querySelector('.nav__toggle__txt');
       if(txt) txt.textContent=open?'CLOSE':'MENU';
     },
